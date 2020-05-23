@@ -359,12 +359,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+process.env.FORCE_COLOR = '2';
 const chalk = __webpack_require__(843);
 const core = __webpack_require__(470);
 const githubstatus = __webpack_require__(850);
 const githubstatus_1 = __webpack_require__(850);
 const utilm = __webpack_require__(345);
-process.env.FORCE_COLOR = '2';
 let unhealthy = [];
 function run() {
     var _a, _b;
