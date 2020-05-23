@@ -10,6 +10,7 @@ describe('githubstatus', () => {
   it('returns GitHub Status (summary)', async () => {
     const summary = await githubstatus.summary();
     console.log(summary);
-    expect(summary?.components[0].status).not.toEqual('');
+    expect(summary?.status.indicator).not.toEqual('');
+    expect(summary?.components?.length).toBeGreaterThan(0);
   });
 });
