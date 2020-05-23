@@ -1,5 +1,5 @@
 # https://help.github.com/en/articles/metadata-syntax-for-github-actions
-name: 'GitHub Status Action'
+name: 'GitHub Status'
 description: "GitHub Action to check GitHub Status in your workflow"
 author: 'crazy-max'
 branding:

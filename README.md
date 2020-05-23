@@ -34,7 +34,7 @@ ___
 
 The following workflow is purely informative and will only display the current status of GitHub services:
 
-![GitHub Status Action - OK](.github/ghaction-github-status2.png)
+![GitHub Status - OK](.github/ghaction-github-status2.png)
 
 ```yaml
 name: build
@@ -59,7 +59,7 @@ In the example below we will set some status thresholds so that the job can fail
 
 This can be useful if you have an action that publishes to GitHub Pages but the service is down.
 
-![GitHub Status Action - Failed](.github/ghaction-github-status.png)
+![GitHub Status - Failed](.github/ghaction-github-status.png)
 
 ```yaml
 name: build

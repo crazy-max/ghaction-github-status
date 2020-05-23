@@ -1,5 +1,5 @@
 {
-  "name": "github-status-action",
+  "name": "github-status",
   "description": "GitHub Action to check GitHub Status in your workflow",
   "main": "lib/main.js",
   "scripts": {
