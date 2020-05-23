@@ -384,30 +384,28 @@ function run() {
             // Check incidents
             if (summary.incidents != undefined && ((_a = summary.incidents) === null || _a === void 0 ? void 0 : _a.length) > 0) {
                 yield utilm.asyncForEach(summary.incidents, (incident) => __awaiter(this, void 0, void 0, function* () {
-                    let incol;
-                    console.log(incident);
+                    let inccol;
                     switch (incident.impact) {
                         case 'minor': {
-                            incol = chalk.keyword('red');
+                            inccol = chalk.magenta;
                             break;
                         }
                         case 'major': {
-                            incol = chalk.keyword('red');
+                            inccol = chalk.yellow;
                             break;
                         }
                         case 'critical': {
-                            incol = chalk.keyword('red');
+                            inccol = chalk.red;
                             break;
                         }
                         default: {
-                            incol = chalk.keyword('red');
-                            break;
+                            inccol = chalk.white;
                         }
                     }
-                    core.info(`\n• ${incol.bold(`${incident.name} (${incident.shortlink})`)}`);
+                    core.info(`\n• ${inccol.bold(`${incident.name} (${incident.shortlink})`)}`);
                     // Incident updates
                     yield utilm.asyncForEach(incident.incident_updates, (update) => __awaiter(this, void 0, void 0, function* () {
-                        core.info(`  • ${chalk.gray(new Date(update.updated_at).toDateString())} - ${incol(update.body)}`);
+                        core.info(`  • ${chalk.gray(new Date(update.updated_at).toDateString())} - ${inccol(update.body)}`);
                     }));
                 }));
             }

@@ -33,31 +33,29 @@ async function run() {
     // Check incidents
     if (summary.incidents != undefined && summary.incidents?.length > 0) {
       await utilm.asyncForEach(summary.incidents, async incident => {
-        let incol;
-        console.log(incident);
+        let inccol;
         switch (incident.impact) {
           case 'minor': {
-            incol = chalk.keyword('red');
+            inccol = chalk.magenta;
             break;
           }
           case 'major': {
-            incol = chalk.keyword('red');
+            inccol = chalk.yellow;
             break;
           }
           case 'critical': {
-            incol = chalk.keyword('red');
+            inccol = chalk.red;
             break;
           }
           default: {
-            incol = chalk.keyword('red');
-            break;
+            inccol = chalk.white;
           }
         }
-        core.info(`\n• ${incol.bold(`${incident.name} (${incident.shortlink})`)}`);
+        core.info(`\n• ${inccol.bold(`${incident.name} (${incident.shortlink})`)}`);
 
         // Incident updates
         await utilm.asyncForEach(incident.incident_updates, async update => {
-          core.info(`  • ${chalk.gray(new Date(update.updated_at).toDateString())} - ${incol(update.body)}`);
+          core.info(`  • ${chalk.gray(new Date(update.updated_at).toDateString())} - ${inccol(update.body)}`);
         });
       });
     }
