@@ -11,7 +11,7 @@ A GitHub Action to check [GitHub Status](https://www.githubstatus.com/) in your 
 
 If you are interested, [check out](https://git.io/Je09Y) my other :octocat: GitHub Actions!
 
-![GitHub Status Action](.github/ghaction-github-status.png)
+![GitHub Status Action - Failed](.github/ghaction-github-status.png) ![GitHub Status Action - OK](.github/ghaction-github-status2.png)
 
 ___
 
