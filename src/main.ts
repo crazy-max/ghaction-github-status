@@ -36,7 +36,7 @@ async function run() {
         let incol = chalk.keyword('white');
         switch (incident.impact) {
           case 'minor': {
-            incol = chalk.keyword('cyan');
+            incol = chalk.keyword('magenta');
             break;
           }
           case 'major': {
