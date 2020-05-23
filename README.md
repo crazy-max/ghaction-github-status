@@ -13,6 +13,7 @@ If you are interested, [check out](https://git.io/Je09Y) my other :octocat: GitH
 
 ___
 
+* [Features](#features)
 * [Usage](#usage)
   * [Basic workflow](#basic-workflow)
   * [Trigger error if GitHub services are down](#trigger-error-if-github-services-are-down)
@@ -20,6 +21,13 @@ ___
   * [inputs](#inputs)
 * [How can I help?](#how-can-i-help)
 * [License](#license)
+
+## Features
+
+* Threshold management for each GitHub service or global (rollup)
+* Display status of all services
+* Display active incidents and updates
+* 
 
 ## Usage
 
