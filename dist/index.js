@@ -386,7 +386,7 @@ function run() {
                 [githubstatus_1.Component.Pages, yield getComponentStatus('pages_threshold')]
             ]);
             // Global
-            const overallStatus = githubstatus_1.OverallStatusName.get(summary.status.indicator) || githubstatus_1.OverallStatus.Critical;
+            const overallStatus = githubstatus_1.OverallStatusName.get(summary.status.indicator);
             if (overallStatus !== undefined && overallThreshold !== undefined && overallStatus >= overallThreshold) {
                 unhealthy.push(`Overall (${yield githubstatus_1.getOverallStatusName(overallStatus)} >= ${yield githubstatus_1.getOverallStatusName(overallThreshold)})`);
             }

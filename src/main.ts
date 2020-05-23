@@ -29,7 +29,7 @@ async function run() {
     ]);
 
     // Global
-    const overallStatus = OverallStatusName.get(summary.status.indicator) || OverallStatus.Critical;
+    const overallStatus = OverallStatusName.get(summary.status.indicator);
     if (overallStatus !== undefined && overallThreshold !== undefined && overallStatus >= overallThreshold) {
       unhealthy.push(`Overall (${await getOverallStatusName(overallStatus)} >= ${await getOverallStatusName(overallThreshold)})`);
     }
