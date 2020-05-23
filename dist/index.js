@@ -438,7 +438,14 @@ function run() {
                         core.info(`\n• ${inccol.bold(`${incident.name} (${incident.shortlink})`)}`);
                         // Incident updates
                         yield utilm.asyncForEach(incident.incident_updates, (update) => __awaiter(this, void 0, void 0, function* () {
-                            const incdate = new Date(update.updated_at).toLocaleString('en-US');
+                            const incdate = new Date(update.updated_at).toLocaleDateString('en-US', {
+                                day: '2-digit',
+                                month: '2-digit',
+                                year: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit',
+                                hour12: false
+                            });
                             core.info(`  • ${chalk.gray(incdate)} - ${inccol(update.body)}`);
                         }));
                     }));
