@@ -40,11 +40,15 @@ export const ComponentsStatusName = new Map<string, ComponentStatus>([
 ]);
 
 export const getOverallStatusName = async (status: OverallStatus): Promise<string | undefined> => {
-  return Object.keys(OverallStatusName).find(key => OverallStatusName[key] === status);
+  for await (let [key, val] of OverallStatusName) {
+    if (val == status) return key;
+  }
 };
 
 export const getComponentStatusName = async (status: ComponentStatus): Promise<string | undefined> => {
-  return Object.keys(ComponentsStatusName).find(key => ComponentsStatusName[key] === status);
+  for await (let [key, val] of ComponentsStatusName) {
+    if (val == status) return key;
+  }
 };
 
 export const status = async (): Promise<Status | null> => {

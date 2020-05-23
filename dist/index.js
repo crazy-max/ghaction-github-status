@@ -3295,6 +3295,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __asyncValues = (this && this.__asyncValues) || function (o) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator], i;
+    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.summary = exports.status = exports.getComponentStatusName = exports.getOverallStatusName = exports.ComponentsStatusName = exports.OverallStatusName = exports.Component = exports.ComponentStatus = exports.OverallStatus = void 0;
 const httpm = __webpack_require__(539);
@@ -3334,10 +3341,38 @@ exports.ComponentsStatusName = new Map([
     ['major_outage', ComponentStatus.MajorOutage]
 ]);
 exports.getOverallStatusName = (status) => __awaiter(void 0, void 0, void 0, function* () {
-    return Object.keys(exports.OverallStatusName).find(key => exports.OverallStatusName[key] === status);
+    var e_1, _a;
+    try {
+        for (var OverallStatusName_1 = __asyncValues(exports.OverallStatusName), OverallStatusName_1_1; OverallStatusName_1_1 = yield OverallStatusName_1.next(), !OverallStatusName_1_1.done;) {
+            let [key, val] = OverallStatusName_1_1.value;
+            if (val == status)
+                return key;
+        }
+    }
+    catch (e_1_1) { e_1 = { error: e_1_1 }; }
+    finally {
+        try {
+            if (OverallStatusName_1_1 && !OverallStatusName_1_1.done && (_a = OverallStatusName_1.return)) yield _a.call(OverallStatusName_1);
+        }
+        finally { if (e_1) throw e_1.error; }
+    }
 });
 exports.getComponentStatusName = (status) => __awaiter(void 0, void 0, void 0, function* () {
-    return Object.keys(exports.ComponentsStatusName).find(key => exports.ComponentsStatusName[key] === status);
+    var e_2, _b;
+    try {
+        for (var ComponentsStatusName_1 = __asyncValues(exports.ComponentsStatusName), ComponentsStatusName_1_1; ComponentsStatusName_1_1 = yield ComponentsStatusName_1.next(), !ComponentsStatusName_1_1.done;) {
+            let [key, val] = ComponentsStatusName_1_1.value;
+            if (val == status)
+                return key;
+        }
+    }
+    catch (e_2_1) { e_2 = { error: e_2_1 }; }
+    finally {
+        try {
+            if (ComponentsStatusName_1_1 && !ComponentsStatusName_1_1.done && (_b = ComponentsStatusName_1.return)) yield _b.call(ComponentsStatusName_1);
+        }
+        finally { if (e_2) throw e_2.error; }
+    }
 });
 exports.status = () => __awaiter(void 0, void 0, void 0, function* () {
     yield console.log(process.env);
