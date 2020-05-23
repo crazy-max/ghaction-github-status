@@ -352,6 +352,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+process.env.FORCE_COLOR = '1';
 const chalk = __webpack_require__(843);
 const core = __webpack_require__(470);
 const githubstatus = __webpack_require__(850);
@@ -399,10 +400,10 @@ function run() {
                             return;
                         }
                     }
-                    console.log(incol.bold(`${incident.name} (${incident.shortlink})`));
+                    console.log(incol.bold(`## ${incident.name} (${incident.shortlink})`));
                     // Incident updates
                     return yield utilm.asyncForEach(incident.incident_updates, (update) => __awaiter(this, void 0, void 0, function* () {
-                        console.log(chalk.red(`  [${incident.updated_at}] ${incident.body}`));
+                        console.log(chalk.red(`[${incident.updated_at}] ${incident.body}`));
                     }));
                 }));
             }

@@ -1,3 +1,5 @@
+process.env.FORCE_COLOR = '1';
+
 import * as chalk from 'chalk';
 import * as core from '@actions/core';
 import * as githubstatus from './githubstatus';
@@ -48,11 +50,11 @@ async function run() {
             return;
           }
         }
-        console.log(incol.bold(`${incident.name} (${incident.shortlink})`));
+        console.log(incol.bold(`## ${incident.name} (${incident.shortlink})`));
 
         // Incident updates
         return await utilm.asyncForEach(incident.incident_updates, async update => {
-          console.log(chalk.red(`  [${incident.updated_at}] ${incident.body}`));
+          console.log(chalk.red(`[${incident.updated_at}] ${incident.body}`));
         });
       });
     }
