@@ -1,4 +1,4 @@
-process.env.FORCE_COLOR = '1';
+process.env.FORCE_COLOR = '2';
 
 import * as chalk from 'chalk';
 import * as core from '@actions/core';
@@ -48,18 +48,18 @@ async function run() {
             break;
           }
         }
-        core.info(incol.inverse(`## ${incident.name} (${incident.shortlink})`));
+        core.info(`\n• ${incol.bold(`${incident.name} (${incident.shortlink})`)}`);
 
         // Incident updates
         await utilm.asyncForEach(incident.incident_updates, async update => {
-          core.info(incol(`[${update.updated_at}] ${update.body}`));
+          core.info(`  • ${chalk.gray(new Date(update.updated_at).toDateString())} - ${incol(update.body)}`);
         });
       });
     }
 
     // Components status
     if (summary.components != undefined && summary.components?.length > 0) {
-      core.info(chalk.inverse(`\nComponents status`));
+      core.info(`\n• ${chalk.inverse(`Components status`)}`);
       await utilm.asyncForEach(summary.components, async component => {
         if (component.name.startsWith('Visit ')) {
           return;
@@ -83,7 +83,7 @@ async function run() {
             break;
           }
         }
-        core.info(`${compstatus}${new Array(30 - compstatus.length).join(' ')} ${component.name}`);
+        core.info(`  • ${compstatus}${new Array(30 - compstatus.length).join(' ')} ${component.name}`);
       });
     }
   } catch (error) {

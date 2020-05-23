@@ -352,7 +352,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-process.env.FORCE_COLOR = '1';
+process.env.FORCE_COLOR = '2';
 const chalk = __webpack_require__(843);
 const core = __webpack_require__(470);
 const githubstatus = __webpack_require__(850);
@@ -399,16 +399,16 @@ function run() {
                             break;
                         }
                     }
-                    core.info(incol.inverse(`## ${incident.name} (${incident.shortlink})`));
+                    core.info(`\n• ${incol.bold(`${incident.name} (${incident.shortlink})`)}`);
                     // Incident updates
                     yield utilm.asyncForEach(incident.incident_updates, (update) => __awaiter(this, void 0, void 0, function* () {
-                        core.info(incol(`[${update.updated_at}] ${update.body}`));
+                        core.info(`  • ${chalk.gray(new Date(update.updated_at).toDateString())} - ${incol(update.body)}`);
                     }));
                 }));
             }
             // Components status
             if (summary.components != undefined && ((_b = summary.components) === null || _b === void 0 ? void 0 : _b.length) > 0) {
-                core.info(chalk.inverse(`\nComponents status`));
+                core.info(`\n• ${chalk.inverse(`Components status`)}`);
                 yield utilm.asyncForEach(summary.components, (component) => __awaiter(this, void 0, void 0, function* () {
                     if (component.name.startsWith('Visit ')) {
                         return;
@@ -432,7 +432,7 @@ function run() {
                             break;
                         }
                     }
-                    core.info(`${compstatus}${new Array(30 - compstatus.length).join(' ')} ${component.name}`);
+                    core.info(`  • ${compstatus}${new Array(30 - compstatus.length).join(' ')} ${component.name}`);
                 }));
             }
         }
