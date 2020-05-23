@@ -89,7 +89,8 @@ async function run() {
 
           // Incident updates
           await utilm.asyncForEach(incident.incident_updates, async update => {
-            core.info(`  • ${chalk.gray(new Date(update.updated_at).toISOString())} - ${inccol(update.body)}`);
+            const incdate = new Date(update.updated_at).toLocaleDateString('en-US');
+            core.info(`  • ${chalk.gray(incdate)} - ${inccol(update.body)}`);
           });
         });
       }
