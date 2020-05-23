@@ -51,8 +51,8 @@ async function run() {
         console.log(incol.bold(`${incident.name} (${incident.shortlink})`));
 
         // Incident updates
-        await utilm.asyncForEach(incident.incident_updates, async update => {
-          console.log(incol(`  [${incident.updated_at}] ${incident.updated_at}`));
+        return await utilm.asyncForEach(incident.incident_updates, async update => {
+          console.log(chalk.red(`  [${incident.updated_at}] ${incident.body}`));
         });
       });
     }

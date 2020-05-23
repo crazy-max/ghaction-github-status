@@ -401,8 +401,8 @@ function run() {
                     }
                     console.log(incol.bold(`${incident.name} (${incident.shortlink})`));
                     // Incident updates
-                    yield utilm.asyncForEach(incident.incident_updates, (update) => __awaiter(this, void 0, void 0, function* () {
-                        console.log(incol(`  [${incident.updated_at}] ${incident.updated_at}`));
+                    return yield utilm.asyncForEach(incident.incident_updates, (update) => __awaiter(this, void 0, void 0, function* () {
+                        console.log(chalk.red(`  [${incident.updated_at}] ${incident.body}`));
                     }));
                 }));
             }
