@@ -17,21 +17,21 @@ async function run() {
       return;
     }
 
-    const overallMinStatus: OverallStatus | undefined = await getOverallStatus('overall_minstatus');
-    const componentsMinStatus = new Map<Component, ComponentStatus | undefined>([
-      [Component.Git, await getComponentStatus('git_minstatus')],
-      [Component.Api, await getComponentStatus('api_minstatus')],
-      [Component.Webhooks, await getComponentStatus('webhooks_minstatus')],
-      [Component.IPP, await getComponentStatus('ipp_minstatus')],
-      [Component.Actions, await getComponentStatus('actions_minstatus')],
-      [Component.Packages, await getComponentStatus('packages_minstatus')],
-      [Component.Pages, await getComponentStatus('pages_minstatus')]
+    const overallThreshold: OverallStatus | undefined = await getOverallStatus('overall_threshold');
+    const componentsthreshold = new Map<Component, ComponentStatus | undefined>([
+      [Component.Git, await getComponentStatus('git_threshold')],
+      [Component.Api, await getComponentStatus('api_threshold')],
+      [Component.Webhooks, await getComponentStatus('webhooks_threshold')],
+      [Component.IPP, await getComponentStatus('ipp_threshold')],
+      [Component.Actions, await getComponentStatus('actions_threshold')],
+      [Component.Packages, await getComponentStatus('packages_threshold')],
+      [Component.Pages, await getComponentStatus('pages_threshold')]
     ]);
 
     // Global
     const overallStatus = OverallStatusName.get(summary.status.indicator) || OverallStatus.Critical;
-    if (overallStatus !== undefined && overallMinStatus !== undefined && overallStatus >= overallMinStatus) {
-      unhealthy.push(`Overall (${await getOverallStatusName(overallStatus)} >= ${await getOverallStatusName(overallMinStatus)})`);
+    if (overallStatus !== undefined && overallThreshold !== undefined && overallStatus >= overallThreshold) {
+      unhealthy.push(`Overall (${await getOverallStatusName(overallStatus)} >= ${await getOverallStatusName(overallThreshold)})`);
     }
     switch (summary.status.indicator) {
       case 'minor': {
@@ -67,9 +67,9 @@ async function run() {
           core.warning(`Cannot resolve status ${component.status} for ${component.name}`);
           return;
         }
-        const compMinStatus = componentsMinStatus.get(component.name);
-        if (compMinStatus !== undefined && compStatus >= compMinStatus) {
-          unhealthy.push(`${component.name} (${await getComponentStatusName(compStatus)} >= ${await getComponentStatusName(compMinStatus)})`);
+        const compthreshold = componentsthreshold.get(component.name);
+        if (compthreshold !== undefined && compStatus >= compthreshold) {
+          unhealthy.push(`${component.name} (${await getComponentStatusName(compStatus)} >= ${await getComponentStatusName(compthreshold)})`);
         }
         let compStatusText;
         switch (component.status) {

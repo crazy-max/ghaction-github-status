@@ -51,14 +51,14 @@ Following inputs can be used as `step.with` keys
 
 | Name                      | Type    | Description                                                                      |
 |---------------------------|---------|----------------------------------------------------------------------------------|
-| `overall_minstatus`**¹**  | String  | Defines from which overall status (also called rollup) of GitHub to fail the job |
-| `git_minstatus`**²**      | String  | Defines from which status for Git Operations to fail the job                     |
-| `api_minstatus`**²**      | String  | Defines from which status for API Requests to fail the job                       |
-| `webhooks_minstatus`**²** | String  | Defines from which status for Webhooks to fail the job                           |
-| `ipp_minstatus`**²**      | String  | Defines from which status for Issues, PRs, Projects to fail the job              |
-| `actions_minstatus`**²**  | String  | Defines from which status for GitHub Actions to fail the job                     |
-| `packages_minstatus`**²** | String  | Defines from which status for GitHub Packages to fail the job                    |
-| `pages_minstatus`**²**    | String  | Defines from which status for GitHub Pages to fail the job                       |
+| `overall_threshold`**¹**  | String  | Defines threshold for overall status (also called rollup) of GitHub to fail the job |
+| `git_threshold`**²**      | String  | Defines threshold for Git Operations to fail the job                     |
+| `api_threshold`**²**      | String  | Defines threshold for API Requests to fail the job                       |
+| `webhooks_threshold`**²** | String  | Defines threshold for Webhooks to fail the job                           |
+| `ipp_threshold`**²**      | String  | Defines threshold for Issues, PRs, Projects to fail the job              |
+| `actions_threshold`**²**  | String  | Defines threshold for GitHub Actions to fail the job                     |
+| `packages_threshold`**²** | String  | Defines threshold for GitHub Packages to fail the job                    |
+| `pages_threshold`**²**    | String  | Defines threshold for GitHub Pages to fail the job                       |
 
 > * **¹** Accepted values are `minor`, `major` or `critical`.
 > * **²** Accepted values are `operational`, `degraded_performance`, `partial_outage` or `major_outage`.

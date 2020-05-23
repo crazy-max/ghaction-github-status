@@ -7,29 +7,29 @@ branding:
   icon: 'alert-triangle'
 
 inputs:
-  overall_minstatus:
-    description: 'Defines from which overall status (also called rollup) of GitHub to fail the job (minor, major or critical)'
+  overall_threshold:
+    description: 'Defines threshold for overall status (also called rollup) of GitHub to fail the job (minor, major or critical)'
     required: false
-  git_minstatus:
-    description: 'Defines from which status for Git Operations to fail the job (operational, degraded_performance, partial_outage or major_outage)'
+  git_threshold:
+    description: 'Defines threshold for Git Operations to fail the job (operational, degraded_performance, partial_outage or major_outage)'
     required: false
-  api_minstatus:
-    description: 'Defines from which status for API Requests to fail the job (operational, degraded_performance, partial_outage or major_outage)'
+  api_threshold:
+    description: 'Defines threshold for API Requests to fail the job (operational, degraded_performance, partial_outage or major_outage)'
     required: false
-  webhooks_minstatus:
-    description: 'Defines from which status for Webhooks to fail the job (operational, degraded_performance, partial_outage or major_outage)'
+  webhooks_threshold:
+    description: 'Defines threshold for Webhooks to fail the job (operational, degraded_performance, partial_outage or major_outage)'
     required: false
-  ipp_minstatus:
-    description: 'Defines from which status for Issues, PRs, Projects to fail the job (operational, degraded_performance, partial_outage or major_outage)'
+  ipp_threshold:
+    description: 'Defines threshold for Issues, PRs, Projects to fail the job (operational, degraded_performance, partial_outage or major_outage)'
     required: false
-  actions_minstatus:
-    description: 'Defines from which status for GitHub Actions to fail the job (operational, degraded_performance, partial_outage or major_outage)'
+  actions_threshold:
+    description: 'Defines threshold for GitHub Actions to fail the job (operational, degraded_performance, partial_outage or major_outage)'
     required: false
-  packages_minstatus:
-    description: 'Defines from which status for GitHub Packages to fail the job (operational, degraded_performance, partial_outage or major_outage)'
+  packages_threshold:
+    description: 'Defines threshold for GitHub Packages to fail the job (operational, degraded_performance, partial_outage or major_outage)'
     required: false
-  pages_minstatus:
-    description: 'Defines from which status for GitHub Pages to fail the job (operational, degraded_performance, partial_outage or major_outage)'
+  pages_threshold:
+    description: 'Defines threshold for GitHub Pages to fail the job (operational, degraded_performance, partial_outage or major_outage)'
     required: false
 
 runs:

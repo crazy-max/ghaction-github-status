@@ -375,20 +375,20 @@ function run() {
                 core.setFailed(`Unable to contact GitHub Status API at this time.`);
                 return;
             }
-            const overallMinStatus = yield getOverallStatus('overall_minstatus');
-            const componentsMinStatus = new Map([
-                [githubstatus_1.Component.Git, yield getComponentStatus('git_minstatus')],
-                [githubstatus_1.Component.Api, yield getComponentStatus('api_minstatus')],
-                [githubstatus_1.Component.Webhooks, yield getComponentStatus('webhooks_minstatus')],
-                [githubstatus_1.Component.IPP, yield getComponentStatus('ipp_minstatus')],
-                [githubstatus_1.Component.Actions, yield getComponentStatus('actions_minstatus')],
-                [githubstatus_1.Component.Packages, yield getComponentStatus('packages_minstatus')],
-                [githubstatus_1.Component.Pages, yield getComponentStatus('pages_minstatus')]
+            const overallThreshold = yield getOverallStatus('overall_threshold');
+            const componentsthreshold = new Map([
+                [githubstatus_1.Component.Git, yield getComponentStatus('git_threshold')],
+                [githubstatus_1.Component.Api, yield getComponentStatus('api_threshold')],
+                [githubstatus_1.Component.Webhooks, yield getComponentStatus('webhooks_threshold')],
+                [githubstatus_1.Component.IPP, yield getComponentStatus('ipp_threshold')],
+                [githubstatus_1.Component.Actions, yield getComponentStatus('actions_threshold')],
+                [githubstatus_1.Component.Packages, yield getComponentStatus('packages_threshold')],
+                [githubstatus_1.Component.Pages, yield getComponentStatus('pages_threshold')]
             ]);
             // Global
             const overallStatus = githubstatus_1.OverallStatusName.get(summary.status.indicator) || githubstatus_1.OverallStatus.Critical;
-            if (overallStatus !== undefined && overallMinStatus !== undefined && overallStatus >= overallMinStatus) {
-                unhealthy.push(`Overall (${yield githubstatus_1.getOverallStatusName(overallStatus)} >= ${yield githubstatus_1.getOverallStatusName(overallMinStatus)})`);
+            if (overallStatus !== undefined && overallThreshold !== undefined && overallStatus >= overallThreshold) {
+                unhealthy.push(`Overall (${yield githubstatus_1.getOverallStatusName(overallStatus)} >= ${yield githubstatus_1.getOverallStatusName(overallThreshold)})`);
             }
             switch (summary.status.indicator) {
                 case 'minor': {
@@ -423,9 +423,9 @@ function run() {
                         core.warning(`Cannot resolve status ${component.status} for ${component.name}`);
                         return;
                     }
-                    const compMinStatus = componentsMinStatus.get(component.name);
-                    if (compMinStatus !== undefined && compStatus >= compMinStatus) {
-                        unhealthy.push(`${component.name} (${yield githubstatus_1.getComponentStatusName(compStatus)} >= ${yield githubstatus_1.getComponentStatusName(compMinStatus)})`);
+                    const compthreshold = componentsthreshold.get(component.name);
+                    if (compthreshold !== undefined && compStatus >= compthreshold) {
+                        unhealthy.push(`${component.name} (${yield githubstatus_1.getComponentStatusName(compStatus)} >= ${yield githubstatus_1.getComponentStatusName(compthreshold)})`);
                     }
                     let compStatusText;
                     switch (component.status) {

@@ -39,7 +39,7 @@ jobs:
         continue-on-error: true
         uses: ./
         with:
-          overall_minstatus: minor
-          pages_minstatus: partial_outage
+          overall_threshold: minor
+          pages_threshold: partial_outage
         env:
           GHACTION_GITHUB_STATUS_MOCKIT: true
