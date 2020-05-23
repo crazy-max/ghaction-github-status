@@ -37,6 +37,9 @@ jobs:
       -
         name: Check GitHub Status
         continue-on-error: true
+        uses: ./
+        with:
+          overall_minstatus: minor
+          pages_minstatus: partial_outage
         env:
           GHACTION_GITHUB_STATUS_MOCKIT: true
-        uses: ./
