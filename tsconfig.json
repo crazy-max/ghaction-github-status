@@ -11,6 +11,7 @@
     "strict": true,
     "noImplicitAny": false,
     "esModuleInterop": false,
+    "resolveJsonModule": true,
     "sourceMap": true
   },
   "exclude": ["node_modules", "**/*.test.ts"]

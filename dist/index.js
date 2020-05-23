@@ -65,6 +65,13 @@ module.exports = require("os");
 
 /***/ }),
 
+/***/ 134:
+/***/ (function(module) {
+
+module.exports = {"page":{"id":"kctbh9vrtdwd","name":"GitHub","url":"https://www.githubstatus.com","time_zone":"Etc/UTC","updated_at":"2020-05-22T20:50:20.457Z"},"status":{"indicator":"minor","description":"Minor Service Outage"}};
+
+/***/ }),
+
 /***/ 141:
 /***/ (function(__unusedmodule, exports, __webpack_require__) {
 
@@ -352,11 +359,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-process.env.FORCE_COLOR = '2';
 const chalk = __webpack_require__(843);
 const core = __webpack_require__(470);
 const githubstatus = __webpack_require__(850);
+const githubstatus_1 = __webpack_require__(850);
 const utilm = __webpack_require__(345);
+process.env.FORCE_COLOR = '2';
+let unhealthy = [];
 function run() {
     var _a, _b;
     return __awaiter(this, void 0, void 0, function* () {
@@ -366,7 +375,21 @@ function run() {
                 core.setFailed(`Unable to contact GitHub Status API at this time.`);
                 return;
             }
-            // Global status
+            const overallMinStatus = yield getOverallStatus('overall_minstatus');
+            const componentsMinStatus = new Map([
+                [githubstatus_1.Component.Git, yield getComponentStatus('git_minstatus')],
+                [githubstatus_1.Component.Api, yield getComponentStatus('api_minstatus')],
+                [githubstatus_1.Component.Webhooks, yield getComponentStatus('webhooks_minstatus')],
+                [githubstatus_1.Component.IPP, yield getComponentStatus('ipp_minstatus')],
+                [githubstatus_1.Component.Actions, yield getComponentStatus('actions_minstatus')],
+                [githubstatus_1.Component.Packages, yield getComponentStatus('packages_minstatus')],
+                [githubstatus_1.Component.Pages, yield getComponentStatus('pages_minstatus')]
+            ]);
+            // Global
+            const overallStatus = githubstatus_1.OverallStatusName.get(summary.status.indicator) || githubstatus_1.OverallStatus.Critical;
+            if (overallStatus !== undefined && overallMinStatus !== undefined && overallStatus >= overallMinStatus) {
+                unhealthy.push(`Overall (${yield githubstatus_1.getOverallStatusName(overallStatus)} >= ${yield githubstatus_1.getOverallStatusName(overallMinStatus)})`);
+            }
             switch (summary.status.indicator) {
                 case 'minor': {
                     core.warning(`GitHub Status: ${summary.status.description}`);
@@ -385,35 +408,47 @@ function run() {
                     break;
                 }
             }
-            // Components status
+            // Components
             if (summary.components != undefined && ((_a = summary.components) === null || _a === void 0 ? void 0 : _a.length) > 0) {
-                core.info(`\n• ${chalk.inverse(`Components status`)}`);
+                core.info(`\n• ${chalk.bold(`Components status`)}`);
                 yield utilm.asyncForEach(summary.components, (component) => __awaiter(this, void 0, void 0, function* () {
                     if (component.name.startsWith('Visit ')) {
                         return;
                     }
-                    let compstatus = 'N/A';
+                    if (!Object.values(githubstatus_1.Component).includes(component.name)) {
+                        core.info(chalk.cyan(`• ${component.name} is not implemented.`));
+                    }
+                    const compStatus = githubstatus_1.ComponentsStatusName.get(component.status);
+                    if (compStatus === undefined) {
+                        core.warning(`Cannot resolve status ${component.status} for ${component.name}`);
+                        return;
+                    }
+                    const compMinStatus = componentsMinStatus.get(component.name);
+                    if (compMinStatus !== undefined && compStatus >= compMinStatus) {
+                        unhealthy.push(`${component.name} (${yield githubstatus_1.getComponentStatusName(compStatus)} >= ${yield githubstatus_1.getComponentStatusName(compMinStatus)})`);
+                    }
+                    let compStatusText;
                     switch (component.status) {
                         case 'operational': {
-                            compstatus = chalk.green('Operational');
+                            compStatusText = chalk.green('Operational');
                             break;
                         }
                         case 'degraded_performance': {
-                            compstatus = chalk.magenta('Degraded performance');
+                            compStatusText = chalk.magenta('Degraded performance');
                             break;
                         }
                         case 'partial_outage': {
-                            compstatus = chalk.yellow('Partial outage');
+                            compStatusText = chalk.yellow('Partial outage');
                             break;
                         }
                         case 'major_outage': {
-                            compstatus = chalk.red('Major outage');
+                            compStatusText = chalk.red('Major outage');
                             break;
                         }
                     }
-                    core.info(`  • ${compstatus}${new Array(30 - compstatus.length).join(' ')} ${component.name}`);
+                    core.info(`  • ${compStatusText}${new Array(30 - compStatusText.length).join(' ')} ${component.name}`);
                 }));
-                // Check incidents
+                // Incidents
                 if (summary.incidents != undefined && ((_b = summary.incidents) === null || _b === void 0 ? void 0 : _b.length) > 0) {
                     yield utilm.asyncForEach(summary.incidents, (incident) => __awaiter(this, void 0, void 0, function* () {
                         let inccol;
@@ -446,15 +481,44 @@ function run() {
                                 minute: '2-digit',
                                 hour12: false
                             });
-                            core.info(`  • ${chalk.gray(incdate)} - ${inccol(update.body)}`);
+                            core.info(`  • ${chalk.gray(incdate)} - ${update.body}`);
                         }));
                     }));
+                    // Check unhealthy
+                    if (unhealthy.length > 0) {
+                        core.info(`\n• ${chalk.bgRed(`Unhealthy`)}`);
+                        yield utilm.asyncForEach(unhealthy, (text) => __awaiter(this, void 0, void 0, function* () {
+                            core.info(`  • ${text}`);
+                        }));
+                        core.setFailed(`GitHub is unhealthy. Following your criteria, the job has been marked as failed.`);
+                        return;
+                    }
                 }
             }
         }
         catch (error) {
             core.setFailed(error.message);
         }
+    });
+}
+function getOverallStatus(input) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const value = core.getInput(input);
+        const status = githubstatus_1.OverallStatusName.get(value);
+        if (value != '' && status === undefined) {
+            throw new Error(`Overall status ${value} does not exist`);
+        }
+        return status;
+    });
+}
+function getComponentStatus(input) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const value = core.getInput(input);
+        const status = githubstatus_1.ComponentsStatusName.get(value);
+        if (value != '' && status === undefined) {
+            throw new Error(`Component status ${value} does not exist for ${input}`);
+        }
+        return status;
     });
 }
 run();
@@ -773,6 +837,13 @@ module.exports = (flag, argv = process.argv) => {
 
 module.exports = __webpack_require__(141);
 
+
+/***/ }),
+
+/***/ 422:
+/***/ (function(module) {
+
+module.exports = {"page":{"id":"kctbh9vrtdwd","name":"GitHub","url":"https://www.githubstatus.com","time_zone":"Etc/UTC","updated_at":"2020-05-22T20:50:20.457Z"},"components":[{"id":"8l4ygp009s5s","name":"Git Operations","status":"operational","created_at":"2017-01-31T20:05:05.370Z","updated_at":"2020-05-15T21:09:07.219Z","position":1,"description":"Performance of git clones, pulls, pushes, and associated operations","showcase":true,"group_id":null,"page_id":"kctbh9vrtdwd","group":false,"only_show_if_degraded":false},{"id":"brv1bkgrwx7q","name":"API Requests","status":"partial_outage","created_at":"2017-01-31T20:01:46.621Z","updated_at":"2020-05-22T17:00:13.168Z","position":2,"description":"Requests for GitHub APIs","showcase":true,"group_id":null,"page_id":"kctbh9vrtdwd","group":false,"only_show_if_degraded":false},{"id":"4230lsnqdsld","name":"Webhooks","status":"operational","created_at":"2019-11-13T18:00:24.256Z","updated_at":"2020-04-23T15:04:54.597Z","position":3,"description":"Real time HTTP callbacks of user-generated and system events","showcase":true,"group_id":null,"page_id":"kctbh9vrtdwd","group":false,"only_show_if_degraded":false},{"id":"0l2p9nhqnxpd","name":"Visit www.githubstatus.com for more information","status":"operational","created_at":"2018-12-05T19:39:40.838Z","updated_at":"2020-04-02T21:56:21.954Z","position":4,"description":null,"showcase":false,"group_id":null,"page_id":"kctbh9vrtdwd","group":false,"only_show_if_degraded":false},{"id":"kr09ddfgbfsf","name":"Issues, Pull Requests, Projects","status":"partial_outage","created_at":"2017-01-31T20:01:46.638Z","updated_at":"2020-05-22T16:54:00.852Z","position":5,"description":"Web requests for github.com UI and services","showcase":true,"group_id":null,"page_id":"kctbh9vrtdwd","group":false,"only_show_if_degraded":false},{"id":"br0l2tvcx85d","name":"GitHub Actions","status":"partial_outage","created_at":"2019-11-13T18:02:19.432Z","updated_at":"2020-05-22T17:01:05.383Z","position":6,"description":"Workflows, Compute and Orchestration for GitHub Actions","showcase":true,"group_id":null,"page_id":"kctbh9vrtdwd","group":false,"only_show_if_degraded":false},{"id":"st3j38cctv9l","name":"GitHub Packages","status":"operational","created_at":"2019-11-13T18:02:40.064Z","updated_at":"2020-05-22T20:50:20.454Z","position":7,"description":"API requests and webhook delivery for GitHub Packages","showcase":true,"group_id":null,"page_id":"kctbh9vrtdwd","group":false,"only_show_if_degraded":false},{"id":"vg70hn9s2tyj","name":"GitHub Pages","status":"partial_outage","created_at":"2017-01-31T20:04:33.923Z","updated_at":"2020-05-22T20:37:37.733Z","position":8,"description":"Frontend application and API servers for Pages builds","showcase":true,"group_id":null,"page_id":"kctbh9vrtdwd","group":false,"only_show_if_degraded":false},{"id":"5l5rlzqm4yzy","name":"Other","status":"operational","created_at":"2019-11-13T18:03:05.012Z","updated_at":"2020-05-15T19:59:51.187Z","position":9,"description":"Other","showcase":false,"group_id":null,"page_id":"kctbh9vrtdwd","group":false,"only_show_if_degraded":false}],"incidents":[{"id":"6tcfpztf6j9m","name":"Incident on 2020-05-22 16:41 UTC","status":"investigating","created_at":"2020-05-22T16:41:53.142Z","updated_at":"2020-05-22T20:50:13.761Z","monitoring_at":null,"resolved_at":null,"impact":"minor","shortlink":"http://stspg.io/g1l6nqnlv29b","started_at":"2020-05-22T16:41:53.133Z","page_id":"kctbh9vrtdwd","incident_updates":[{"id":"2hdg5g90ysg5","status":"investigating","body":"The last incident update was due to the ongoing remediation work. We have addressed that issue and continue to monitor the original issue.","incident_id":"6tcfpztf6j9m","created_at":"2020-05-22T20:50:13.759Z","updated_at":"2020-05-22T20:50:13.759Z","display_at":"2020-05-22T20:50:13.759Z","affected_components":null,"deliver_notifications":true,"custom_tweet":null,"tweet_id":null},{"id":"jwx4zzg89qxk","status":"investigating","body":"We are also investigating elevated error rates for GitHub.com.","incident_id":"6tcfpztf6j9m","created_at":"2020-05-22T19:57:28.380Z","updated_at":"2020-05-22T19:57:28.380Z","display_at":"2020-05-22T19:57:28.380Z","affected_components":null,"deliver_notifications":true,"custom_tweet":null,"tweet_id":null},{"id":"2v0t4679xdb0","status":"investigating","body":"We continue to monitor the remediation and will provide the next update in 1 hour.","incident_id":"6tcfpztf6j9m","created_at":"2020-05-22T19:17:05.205Z","updated_at":"2020-05-22T19:17:05.205Z","display_at":"2020-05-22T19:17:05.205Z","affected_components":null,"deliver_notifications":true,"custom_tweet":null,"tweet_id":null},{"id":"2vsfbxp44rcy","status":"investigating","body":"We have identified the source causing elevated errors as well as occasional stale data on GitHub.com. We are working on remediation.","incident_id":"6tcfpztf6j9m","created_at":"2020-05-22T18:01:25.988Z","updated_at":"2020-05-22T18:01:25.988Z","display_at":"2020-05-22T18:01:25.988Z","affected_components":null,"deliver_notifications":true,"custom_tweet":null,"tweet_id":null},{"id":"v2jscrdmsw38","status":"investigating","body":"We continue to investigate an increase in errors on GitHub.com.","incident_id":"6tcfpztf6j9m","created_at":"2020-05-22T17:16:39.703Z","updated_at":"2020-05-22T17:16:39.703Z","display_at":"2020-05-22T17:16:39.703Z","affected_components":null,"deliver_notifications":true,"custom_tweet":null,"tweet_id":null},{"id":"3ry2b0s8174c","status":"investigating","body":"We are investigating an increase in errors on GitHub.com.","incident_id":"6tcfpztf6j9m","created_at":"2020-05-22T16:41:53.189Z","updated_at":"2020-05-22T16:41:53.189Z","display_at":"2020-05-22T16:41:53.189Z","affected_components":[{"code":"0l2p9nhqnxpd","name":"Visit www.githubstatus.com for more information","old_status":"operational","new_status":"operational"}],"deliver_notifications":true,"custom_tweet":null,"tweet_id":null}],"components":[{"id":"0l2p9nhqnxpd","name":"Visit www.githubstatus.com for more information","status":"operational","created_at":"2018-12-05T19:39:40.838Z","updated_at":"2020-04-02T21:56:21.954Z","position":4,"description":null,"showcase":false,"group_id":null,"page_id":"kctbh9vrtdwd","group":false,"only_show_if_degraded":false}]}],"scheduled_maintenances":[],"status":{"indicator":"minor","description":"Minor Service Outage"}};
 
 /***/ }),
 
@@ -3225,13 +3296,63 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.summary = exports.status = void 0;
+exports.summary = exports.status = exports.getComponentStatusName = exports.getOverallStatusName = exports.ComponentsStatusName = exports.OverallStatusName = exports.Component = exports.ComponentStatus = exports.OverallStatus = void 0;
 const httpm = __webpack_require__(539);
+var OverallStatus;
+(function (OverallStatus) {
+    OverallStatus[OverallStatus["Minor"] = 0] = "Minor";
+    OverallStatus[OverallStatus["Major"] = 1] = "Major";
+    OverallStatus[OverallStatus["Critical"] = 2] = "Critical";
+})(OverallStatus = exports.OverallStatus || (exports.OverallStatus = {}));
+var ComponentStatus;
+(function (ComponentStatus) {
+    ComponentStatus[ComponentStatus["Operational"] = 0] = "Operational";
+    ComponentStatus[ComponentStatus["DegradedPerformance"] = 1] = "DegradedPerformance";
+    ComponentStatus[ComponentStatus["PartialOutage"] = 2] = "PartialOutage";
+    ComponentStatus[ComponentStatus["MajorOutage"] = 3] = "MajorOutage";
+})(ComponentStatus = exports.ComponentStatus || (exports.ComponentStatus = {}));
+var Component;
+(function (Component) {
+    Component["Git"] = "Git Operations";
+    Component["Api"] = "API Requests";
+    Component["Webhooks"] = "Webhooks";
+    Component["IPP"] = "Issues, Pull Requests, Projects";
+    Component["Actions"] = "GitHub Actions";
+    Component["Packages"] = "GitHub Packages";
+    Component["Pages"] = "GitHub Pages";
+    Component["Other"] = "Other";
+})(Component = exports.Component || (exports.Component = {}));
+exports.OverallStatusName = new Map([
+    ['minor', OverallStatus.Minor],
+    ['major', OverallStatus.Major],
+    ['critical', OverallStatus.Critical]
+]);
+exports.ComponentsStatusName = new Map([
+    ['operational', ComponentStatus.Operational],
+    ['degraded_performance', ComponentStatus.DegradedPerformance],
+    ['partial_outage', ComponentStatus.PartialOutage],
+    ['major_outage', ComponentStatus.MajorOutage]
+]);
+exports.getOverallStatusName = (status) => __awaiter(void 0, void 0, void 0, function* () {
+    return Object.keys(exports.OverallStatusName).find(key => exports.OverallStatusName[key] === status);
+});
+exports.getComponentStatusName = (status) => __awaiter(void 0, void 0, void 0, function* () {
+    return Object.keys(exports.ComponentsStatusName).find(key => exports.ComponentsStatusName[key] === status);
+});
 exports.status = () => __awaiter(void 0, void 0, void 0, function* () {
+    yield console.log(process.env);
+    if (process.env.GHACTION_GITHUB_STATUS_MOCKIT) {
+        // @ts-ignore
+        return __webpack_require__(134);
+    }
     const http = new httpm.HttpClient('ghaction-github-status');
     return (yield http.getJson(`https://www.githubstatus.com/api/v2/status.json`)).result;
 });
 exports.summary = () => __awaiter(void 0, void 0, void 0, function* () {
+    if (process.env.GHACTION_GITHUB_STATUS_MOCKIT) {
+        // @ts-ignore
+        return __webpack_require__(422);
+    }
     const http = new httpm.HttpClient('ghaction-github-status');
     return (yield http.getJson(`https://www.githubstatus.com/api/v2/summary.json`)).result;
 });

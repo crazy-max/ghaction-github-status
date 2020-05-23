@@ -17,6 +17,8 @@ ___
 
 * [Usage](#usage)
   * [Basic workflow](#basic-workflow)
+* [Customizing](#customizing)
+  * [inputs](#inputs)
 * [How can I help?](#how-can-i-help)
 * [License](#license)
 
@@ -40,6 +42,26 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
 ```
+
+## Customizing
+
+### inputs
+
+Following inputs can be used as `step.with` keys
+
+| Name                      | Type    | Description                                                                      |
+|---------------------------|---------|----------------------------------------------------------------------------------|
+| `overall_minstatus`**¹**  | String  | Defines from which overall status (also called rollup) of GitHub to fail the job |
+| `git_minstatus`**²**      | String  | Defines from which status for Git Operations to fail the job                     |
+| `api_minstatus`**²**      | String  | Defines from which status for API Requests to fail the job                       |
+| `webhooks_minstatus`**²** | String  | Defines from which status for Webhooks to fail the job                           |
+| `ipp_minstatus`**²**      | String  | Defines from which status for Issues, PRs, Projects to fail the job              |
+| `actions_minstatus`**²**  | String  | Defines from which status for GitHub Actions to fail the job                     |
+| `packages_minstatus`**²** | String  | Defines from which status for GitHub Packages to fail the job                    |
+| `pages_minstatus`**²**    | String  | Defines from which status for GitHub Pages to fail the job                       |
+
+> * **¹** Accepted values are `minor`, `major` or `critical`.
+> * **²** Accepted values are `operational`, `degraded_performance`, `partial_outage` or `major_outage`.
 
 ## How can I help?
 

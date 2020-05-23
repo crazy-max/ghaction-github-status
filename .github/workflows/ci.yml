@@ -27,3 +27,16 @@ jobs:
       -
         name: Check GitHub Status
         uses: ./
+
+  ci-fail:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Check GitHub Status
+        continue-on-error: true
+        env:
+          - GHACTION_GITHUB_STATUS_MOCKIT: true
+        uses: ./
