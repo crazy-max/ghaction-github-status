@@ -360,10 +360,9 @@ function run() {
     var _a, _b;
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            core.info('🔮 Checking GitHub Status');
             const summary = yield githubstatus.summary();
             if (summary == null) {
-                core.setFailed(`Unable to contact GitHub Status page at this time.`);
+                core.setFailed(`Unable to contact GitHub Status API at this time.`);
                 return;
             }
             // Global status
@@ -383,7 +382,7 @@ function run() {
             }
             // Check incidents
             if (summary.incidents != undefined && ((_a = summary.incidents) === null || _a === void 0 ? void 0 : _a.length) > 0) {
-                core.info(`There is on going ${summary.incidents.length} incident(s) on GitHub`);
+                core.info(`There are ${summary.incidents.length} on going incidents on GitHub`);
                 yield utilm.asyncForEach(summary.incidents, (incident) => __awaiter(this, void 0, void 0, function* () {
                     let incol = chalk.keyword('white');
                     switch (incident.impact) {

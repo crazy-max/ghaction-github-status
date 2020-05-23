@@ -6,10 +6,9 @@ import * as utilm from './util';
 
 async function run() {
   try {
-    core.info('🔮 Checking GitHub Status');
     const summary: Summary | null = await githubstatus.summary();
     if (summary == null) {
-      core.setFailed(`Unable to contact GitHub Status page at this time.`);
+      core.setFailed(`Unable to contact GitHub Status API at this time.`);
       return;
     }
 
@@ -31,7 +30,7 @@ async function run() {
 
     // Check incidents
     if (summary.incidents != undefined && summary.incidents?.length > 0) {
-      core.info(`There is on going ${summary.incidents.length} incident(s) on GitHub`);
+      core.info(`There are ${summary.incidents.length} on going incidents on GitHub`);
 
       await utilm.asyncForEach(summary.incidents, async incident => {
         let incol = chalk.keyword('white');
