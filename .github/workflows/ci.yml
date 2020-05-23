@@ -38,5 +38,5 @@ jobs:
         name: Check GitHub Status
         continue-on-error: true
         env:
-          - GHACTION_GITHUB_STATUS_MOCKIT: true
+          GHACTION_GITHUB_STATUS_MOCKIT: true
         uses: ./
