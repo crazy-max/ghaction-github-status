@@ -11,12 +11,11 @@ A GitHub Action to check [GitHub Status](https://www.githubstatus.com/) in your 
 
 If you are interested, [check out](https://git.io/Je09Y) my other :octocat: GitHub Actions!
 
-![GitHub Status Action - Failed](.github/ghaction-github-status.png) ![GitHub Status Action - OK](.github/ghaction-github-status2.png)
-
 ___
 
 * [Usage](#usage)
   * [Basic workflow](#basic-workflow)
+  * [Trigger error if GitHub services are down](#trigger-error-if-github-services-are-down)
 * [Customizing](#customizing)
   * [inputs](#inputs)
 * [How can I help?](#how-can-i-help)
@@ -25,6 +24,10 @@ ___
 ## Usage
 
 ### Basic workflow
+
+The following workflow is purely informative and will only display the current status of GitHub services:
+
+![GitHub Status Action - OK](.github/ghaction-github-status2.png)
 
 ```yaml
 name: build
@@ -38,6 +41,34 @@ jobs:
       -
         name: Check GitHub Status
         uses: crazy-max/ghaction-github-status@v1
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+```
+
+### Trigger error if GitHub services are down
+
+In the example below we will set some status thresholds so that the job can fail if these thresholds are exceeded.
+
+This can be useful if you have an action that publishes to GitHub Pages but the service is down.
+
+![GitHub Status Action - Failed](.github/ghaction-github-status.png)
+
+```yaml
+name: build
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Check GitHub Status
+        uses: crazy-max/ghaction-github-status@v1
+        with:
+          overall_threshold: minor
+          pages_threshold: partial_outage
       -
         name: Checkout
         uses: actions/checkout@v2
