@@ -48,18 +48,18 @@ async function run() {
             break;
           }
         }
-        core.info(incol.bold(`## ${incident.name} (${incident.shortlink})`));
+        core.info(incol.inverse(`## ${incident.name} (${incident.shortlink})`));
 
         // Incident updates
         await utilm.asyncForEach(incident.incident_updates, async update => {
-          core.info(incol(`[${incident.updated_at}] ${incident.body}`));
+          core.info(incol(`[${update.updated_at}] ${update.body}`));
         });
       });
     }
 
     // Components status
     if (summary.components != undefined && summary.components?.length > 0) {
-      core.info(chalk.bold(`\n## Components status`));
+      core.info(chalk.inverse(`\nComponents status`));
       await utilm.asyncForEach(summary.components, async component => {
         if (component.name.startsWith('Visit ')) {
           return;
@@ -83,7 +83,7 @@ async function run() {
             break;
           }
         }
-        core.info(`${compstatus}${new Array(26 - compstatus.length).join(' ')} ${component.name}`);
+        core.info(`${compstatus}${new Array(30 - compstatus.length).join(' ')} ${component.name}`);
       });
     }
   } catch (error) {
