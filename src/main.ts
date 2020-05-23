@@ -48,11 +48,11 @@ async function run() {
             return;
           }
         }
-        core.info(incol.bold(`${incident.name} (${incident.shortlink})`));
+        console.log(incol.bold(`${incident.name} (${incident.shortlink})`));
 
         // Incident updates
         await utilm.asyncForEach(incident.incident_updates, async update => {
-          core.info(incol(`  [${incident.updated_at}] ${incident.updated_at}`));
+          console.log(incol(`  [${incident.updated_at}] ${incident.updated_at}`));
         });
       });
     }
@@ -60,6 +60,9 @@ async function run() {
     // Components status
     if (summary.components != undefined && summary.components?.length > 0) {
       await utilm.asyncForEach(summary.components, async component => {
+        if (component.name.startsWith('Visit ')) {
+          return;
+        }
         let compstatus = 'N/A';
         switch (component.status) {
           case 'operational': {
@@ -79,7 +82,7 @@ async function run() {
             return;
           }
         }
-        core.info(`${compstatus}${new Array(22 - compstatus.length).join(' ')} ${component.name}`);
+        console.log(`${compstatus}${new Array(22 - compstatus.length).join(' ')} ${component.name}`);
       });
     }
   } catch (error) {

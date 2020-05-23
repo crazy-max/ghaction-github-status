@@ -399,16 +399,19 @@ function run() {
                             return;
                         }
                     }
-                    core.info(incol.bold(`${incident.name} (${incident.shortlink})`));
+                    console.log(incol.bold(`${incident.name} (${incident.shortlink})`));
                     // Incident updates
                     yield utilm.asyncForEach(incident.incident_updates, (update) => __awaiter(this, void 0, void 0, function* () {
-                        core.info(incol(`  [${incident.updated_at}] ${incident.updated_at}`));
+                        console.log(incol(`  [${incident.updated_at}] ${incident.updated_at}`));
                     }));
                 }));
             }
             // Components status
             if (summary.components != undefined && ((_b = summary.components) === null || _b === void 0 ? void 0 : _b.length) > 0) {
                 yield utilm.asyncForEach(summary.components, (component) => __awaiter(this, void 0, void 0, function* () {
+                    if (component.name.startsWith('Visit ')) {
+                        return;
+                    }
                     let compstatus = 'N/A';
                     switch (component.status) {
                         case 'operational': {
@@ -428,7 +431,7 @@ function run() {
                             return;
                         }
                     }
-                    core.info(`${compstatus}${new Array(22 - compstatus.length).join(' ')} ${component.name}`);
+                    console.log(`${compstatus}${new Array(22 - compstatus.length).join(' ')} ${component.name}`);
                 }));
             }
         }
