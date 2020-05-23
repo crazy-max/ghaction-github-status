@@ -27,7 +27,6 @@ ___
 * Threshold management for each GitHub service or global (rollup)
 * Display status of all services
 * Display active incidents and updates
-* 
 
 ## Usage
 
