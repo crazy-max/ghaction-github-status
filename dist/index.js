@@ -384,17 +384,22 @@ function run() {
             // Check incidents
             if (summary.incidents != undefined && ((_a = summary.incidents) === null || _a === void 0 ? void 0 : _a.length) > 0) {
                 yield utilm.asyncForEach(summary.incidents, (incident) => __awaiter(this, void 0, void 0, function* () {
-                    let incol = chalk.keyword('white');
+                    let incol;
+                    console.log(incident);
                     switch (incident.impact) {
                         case 'minor': {
-                            incol = chalk.keyword('magenta');
+                            incol = chalk.keyword('red');
                             break;
                         }
                         case 'major': {
-                            incol = chalk.keyword('yellow');
+                            incol = chalk.keyword('red');
                             break;
                         }
                         case 'critical': {
+                            incol = chalk.keyword('red');
+                            break;
+                        }
+                        default: {
                             incol = chalk.keyword('red');
                             break;
                         }

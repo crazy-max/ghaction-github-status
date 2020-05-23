@@ -33,17 +33,22 @@ async function run() {
     // Check incidents
     if (summary.incidents != undefined && summary.incidents?.length > 0) {
       await utilm.asyncForEach(summary.incidents, async incident => {
-        let incol = chalk.keyword('white');
+        let incol;
+        console.log(incident);
         switch (incident.impact) {
           case 'minor': {
-            incol = chalk.keyword('magenta');
+            incol = chalk.keyword('red');
             break;
           }
           case 'major': {
-            incol = chalk.keyword('yellow');
+            incol = chalk.keyword('red');
             break;
           }
           case 'critical': {
+            incol = chalk.keyword('red');
+            break;
+          }
+          default: {
             incol = chalk.keyword('red');
             break;
           }
