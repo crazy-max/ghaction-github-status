@@ -32,8 +32,6 @@ async function run() {
 
     // Check incidents
     if (summary.incidents != undefined && summary.incidents?.length > 0) {
-      core.info(`\nThere are ${summary.incidents.length} on going incidents on GitHub`);
-
       await utilm.asyncForEach(summary.incidents, async incident => {
         let incol = chalk.keyword('white');
         switch (incident.impact) {
@@ -85,7 +83,7 @@ async function run() {
             break;
           }
         }
-        core.info(`${compstatus}${new Array(22 - compstatus.length).join(' ')} ${component.name}`);
+        core.info(`${compstatus}${new Array(26 - compstatus.length).join(' ')} ${component.name}`);
       });
     }
   } catch (error) {

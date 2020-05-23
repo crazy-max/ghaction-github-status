@@ -383,7 +383,6 @@ function run() {
             }
             // Check incidents
             if (summary.incidents != undefined && ((_a = summary.incidents) === null || _a === void 0 ? void 0 : _a.length) > 0) {
-                core.info(`\nThere are ${summary.incidents.length} on going incidents on GitHub`);
                 yield utilm.asyncForEach(summary.incidents, (incident) => __awaiter(this, void 0, void 0, function* () {
                     let incol = chalk.keyword('white');
                     switch (incident.impact) {
@@ -433,7 +432,7 @@ function run() {
                             break;
                         }
                     }
-                    core.info(`${compstatus}${new Array(22 - compstatus.length).join(' ')} ${component.name}`);
+                    core.info(`${compstatus}${new Array(26 - compstatus.length).join(' ')} ${component.name}`);
                 }));
             }
         }
