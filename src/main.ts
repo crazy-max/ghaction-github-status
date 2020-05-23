@@ -17,28 +17,28 @@ async function run() {
     // Global status
     switch (summary.status.indicator) {
       case 'minor': {
-        core.warning(`GitHub Status ${summary.status.indicator} outage: ${summary.status.description}`);
+        core.warning(`GitHub Status: ${summary.status.description}`);
         break;
       }
       case 'major': {
-        core.error(`GitHub Status ${summary.status.indicator} outage: ${summary.status.description}`);
+        core.error(`GitHub Status: ${summary.status.description}`);
         break;
       }
       case 'critical': {
-        core.error(`GitHub Status ${summary.status.indicator} outage: ${summary.status.description}`);
+        core.error(`GitHub Status: ${summary.status.description}`);
         break;
       }
     }
 
     // Check incidents
     if (summary.incidents != undefined && summary.incidents?.length > 0) {
-      core.info(`There are ${summary.incidents.length} on going incidents on GitHub`);
+      core.info(`\nThere are ${summary.incidents.length} on going incidents on GitHub`);
 
       await utilm.asyncForEach(summary.incidents, async incident => {
         let incol = chalk.keyword('white');
         switch (incident.impact) {
           case 'minor': {
-            incol = chalk.keyword('blue');
+            incol = chalk.keyword('cyan');
             break;
           }
           case 'major': {
@@ -47,20 +47,21 @@ async function run() {
           }
           case 'critical': {
             incol = chalk.keyword('red');
-            return;
+            break;
           }
         }
-        console.log(incol.bold(`## ${incident.name} (${incident.shortlink})`));
+        core.info(incol.bold(`## ${incident.name} (${incident.shortlink})`));
 
         // Incident updates
-        return await utilm.asyncForEach(incident.incident_updates, async update => {
-          console.log(chalk.red(`[${incident.updated_at}] ${incident.body}`));
+        await utilm.asyncForEach(incident.incident_updates, async update => {
+          core.info(incol(`[${incident.updated_at}] ${incident.body}`));
         });
       });
     }
 
     // Components status
     if (summary.components != undefined && summary.components?.length > 0) {
+      core.info(chalk.bold(`\n## Components status`));
       await utilm.asyncForEach(summary.components, async component => {
         if (component.name.startsWith('Visit ')) {
           return;
@@ -77,14 +78,14 @@ async function run() {
           }
           case 'partial_outage': {
             compstatus = chalk.yellow('Partial outage');
-            return;
+            break;
           }
           case 'major_outage': {
             compstatus = chalk.red('Major outage');
-            return;
+            break;
           }
         }
-        console.log(`${compstatus}${new Array(22 - compstatus.length).join(' ')} ${component.name}`);
+        core.info(`${compstatus}${new Array(22 - compstatus.length).join(' ')} ${component.name}`);
       });
     }
   } catch (error) {
