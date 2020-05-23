@@ -1,0 +1,11 @@
+# https://help.github.com/en/articles/metadata-syntax-for-github-actions
+name: 'GitHub Status Action'
+description: "GitHub Action to check GitHub Status in your workflow"
+author: 'crazy-max'
+branding:
+  color: 'orange'
+  icon: 'alert-triangle'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

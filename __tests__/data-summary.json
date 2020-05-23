@@ -1,0 +1,260 @@
+{
+  "page": {
+    "id": "kctbh9vrtdwd",
+    "name": "GitHub",
+    "url": "https://www.githubstatus.com",
+    "time_zone": "Etc/UTC",
+    "updated_at": "2020-05-22T20:50:20.457Z"
+  },
+  "components": [
+    {
+      "id": "8l4ygp009s5s",
+      "name": "Git Operations",
+      "status": "operational",
+      "created_at": "2017-01-31T20:05:05.370Z",
+      "updated_at": "2020-05-15T21:09:07.219Z",
+      "position": 1,
+      "description": "Performance of git clones, pulls, pushes, and associated operations",
+      "showcase": true,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "brv1bkgrwx7q",
+      "name": "API Requests",
+      "status": "partial_outage",
+      "created_at": "2017-01-31T20:01:46.621Z",
+      "updated_at": "2020-05-22T17:00:13.168Z",
+      "position": 2,
+      "description": "Requests for GitHub APIs",
+      "showcase": true,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "4230lsnqdsld",
+      "name": "Webhooks",
+      "status": "operational",
+      "created_at": "2019-11-13T18:00:24.256Z",
+      "updated_at": "2020-04-23T15:04:54.597Z",
+      "position": 3,
+      "description": "Real time HTTP callbacks of user-generated and system events",
+      "showcase": true,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "0l2p9nhqnxpd",
+      "name": "Visit www.githubstatus.com for more information",
+      "status": "operational",
+      "created_at": "2018-12-05T19:39:40.838Z",
+      "updated_at": "2020-04-02T21:56:21.954Z",
+      "position": 4,
+      "description": null,
+      "showcase": false,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "kr09ddfgbfsf",
+      "name": "Issues, Pull Requests, Projects",
+      "status": "partial_outage",
+      "created_at": "2017-01-31T20:01:46.638Z",
+      "updated_at": "2020-05-22T16:54:00.852Z",
+      "position": 5,
+      "description": "Web requests for github.com UI and services",
+      "showcase": true,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "br0l2tvcx85d",
+      "name": "GitHub Actions",
+      "status": "partial_outage",
+      "created_at": "2019-11-13T18:02:19.432Z",
+      "updated_at": "2020-05-22T17:01:05.383Z",
+      "position": 6,
+      "description": "Workflows, Compute and Orchestration for GitHub Actions",
+      "showcase": true,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "st3j38cctv9l",
+      "name": "GitHub Packages",
+      "status": "operational",
+      "created_at": "2019-11-13T18:02:40.064Z",
+      "updated_at": "2020-05-22T20:50:20.454Z",
+      "position": 7,
+      "description": "API requests and webhook delivery for GitHub Packages",
+      "showcase": true,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "vg70hn9s2tyj",
+      "name": "GitHub Pages",
+      "status": "partial_outage",
+      "created_at": "2017-01-31T20:04:33.923Z",
+      "updated_at": "2020-05-22T20:37:37.733Z",
+      "position": 8,
+      "description": "Frontend application and API servers for Pages builds",
+      "showcase": true,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "5l5rlzqm4yzy",
+      "name": "Other",
+      "status": "operational",
+      "created_at": "2019-11-13T18:03:05.012Z",
+      "updated_at": "2020-05-15T19:59:51.187Z",
+      "position": 9,
+      "description": "Other",
+      "showcase": false,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    }
+  ],
+  "incidents": [
+    {
+      "id": "6tcfpztf6j9m",
+      "name": "Incident on 2020-05-22 16:41 UTC",
+      "status": "investigating",
+      "created_at": "2020-05-22T16:41:53.142Z",
+      "updated_at": "2020-05-22T20:50:13.761Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "minor",
+      "shortlink": "http://stspg.io/g1l6nqnlv29b",
+      "started_at": "2020-05-22T16:41:53.133Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "2hdg5g90ysg5",
+          "status": "investigating",
+          "body": "The last incident update was due to the ongoing remediation work. We have addressed that issue and continue to monitor the original issue.",
+          "incident_id": "6tcfpztf6j9m",
+          "created_at": "2020-05-22T20:50:13.759Z",
+          "updated_at": "2020-05-22T20:50:13.759Z",
+          "display_at": "2020-05-22T20:50:13.759Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "jwx4zzg89qxk",
+          "status": "investigating",
+          "body": "We are also investigating elevated error rates for GitHub.com.",
+          "incident_id": "6tcfpztf6j9m",
+          "created_at": "2020-05-22T19:57:28.380Z",
+          "updated_at": "2020-05-22T19:57:28.380Z",
+          "display_at": "2020-05-22T19:57:28.380Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "2v0t4679xdb0",
+          "status": "investigating",
+          "body": "We continue to monitor the remediation and will provide the next update in 1 hour.",
+          "incident_id": "6tcfpztf6j9m",
+          "created_at": "2020-05-22T19:17:05.205Z",
+          "updated_at": "2020-05-22T19:17:05.205Z",
+          "display_at": "2020-05-22T19:17:05.205Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "2vsfbxp44rcy",
+          "status": "investigating",
+          "body": "We have identified the source causing elevated errors as well as occasional stale data on GitHub.com. We are working on remediation.",
+          "incident_id": "6tcfpztf6j9m",
+          "created_at": "2020-05-22T18:01:25.988Z",
+          "updated_at": "2020-05-22T18:01:25.988Z",
+          "display_at": "2020-05-22T18:01:25.988Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "v2jscrdmsw38",
+          "status": "investigating",
+          "body": "We continue to investigate an increase in errors on GitHub.com.",
+          "incident_id": "6tcfpztf6j9m",
+          "created_at": "2020-05-22T17:16:39.703Z",
+          "updated_at": "2020-05-22T17:16:39.703Z",
+          "display_at": "2020-05-22T17:16:39.703Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "3ry2b0s8174c",
+          "status": "investigating",
+          "body": "We are investigating an increase in errors on GitHub.com.",
+          "incident_id": "6tcfpztf6j9m",
+          "created_at": "2020-05-22T16:41:53.189Z",
+          "updated_at": "2020-05-22T16:41:53.189Z",
+          "display_at": "2020-05-22T16:41:53.189Z",
+          "affected_components": [
+            {
+              "code": "0l2p9nhqnxpd",
+              "name": "Visit www.githubstatus.com for more information",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "0l2p9nhqnxpd",
+          "name": "Visit www.githubstatus.com for more information",
+          "status": "operational",
+          "created_at": "2018-12-05T19:39:40.838Z",
+          "updated_at": "2020-04-02T21:56:21.954Z",
+          "position": 4,
+          "description": null,
+          "showcase": false,
+          "group_id": null,
+          "page_id": "kctbh9vrtdwd",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ]
+    }
+  ],
+  "scheduled_maintenances": [],
+  "status": {
+    "indicator": "minor",
+    "description": "Minor Service Outage"
+  }
+}
