@@ -28,36 +28,10 @@ async function run() {
         core.error(`GitHub Status: ${summary.status.description}`);
         break;
       }
-    }
-
-    // Check incidents
-    if (summary.incidents != undefined && summary.incidents?.length > 0) {
-      await utilm.asyncForEach(summary.incidents, async incident => {
-        let inccol;
-        switch (incident.impact) {
-          case 'minor': {
-            inccol = chalk.magenta;
-            break;
-          }
-          case 'major': {
-            inccol = chalk.yellow;
-            break;
-          }
-          case 'critical': {
-            inccol = chalk.red;
-            break;
-          }
-          default: {
-            inccol = chalk.white;
-          }
-        }
-        core.info(`\n• ${inccol.bold(`${incident.name} (${incident.shortlink})`)}`);
-
-        // Incident updates
-        await utilm.asyncForEach(incident.incident_updates, async update => {
-          core.info(`  • ${chalk.gray(new Date(update.updated_at).toDateString())} - ${inccol(update.body)}`);
-        });
-      });
+      default: {
+        core.info(`GitHub Status: ${summary.status.description}`);
+        break;
+      }
     }
 
     // Components status
@@ -88,6 +62,37 @@ async function run() {
         }
         core.info(`  • ${compstatus}${new Array(30 - compstatus.length).join(' ')} ${component.name}`);
       });
+
+      // Check incidents
+      if (summary.incidents != undefined && summary.incidents?.length > 0) {
+        await utilm.asyncForEach(summary.incidents, async incident => {
+          let inccol;
+          switch (incident.impact) {
+            case 'minor': {
+              inccol = chalk.magenta;
+              break;
+            }
+            case 'major': {
+              inccol = chalk.yellow;
+              break;
+            }
+            case 'critical': {
+              inccol = chalk.red;
+              break;
+            }
+            default: {
+              inccol = chalk.white;
+              break;
+            }
+          }
+          core.info(`\n• ${inccol.bold(`${incident.name} (${incident.shortlink})`)}`);
+
+          // Incident updates
+          await utilm.asyncForEach(incident.incident_updates, async update => {
+            core.info(`  • ${chalk.gray(new Date(update.updated_at).toISOString())} - ${inccol(update.body)}`);
+          });
+        });
+      }
     }
   } catch (error) {
     core.setFailed(error.message);

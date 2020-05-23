@@ -380,37 +380,13 @@ function run() {
                     core.error(`GitHub Status: ${summary.status.description}`);
                     break;
                 }
-            }
-            // Check incidents
-            if (summary.incidents != undefined && ((_a = summary.incidents) === null || _a === void 0 ? void 0 : _a.length) > 0) {
-                yield utilm.asyncForEach(summary.incidents, (incident) => __awaiter(this, void 0, void 0, function* () {
-                    let inccol;
-                    switch (incident.impact) {
-                        case 'minor': {
-                            inccol = chalk.magenta;
-                            break;
-                        }
-                        case 'major': {
-                            inccol = chalk.yellow;
-                            break;
-                        }
-                        case 'critical': {
-                            inccol = chalk.red;
-                            break;
-                        }
-                        default: {
-                            inccol = chalk.white;
-                        }
-                    }
-                    core.info(`\n• ${inccol.bold(`${incident.name} (${incident.shortlink})`)}`);
-                    // Incident updates
-                    yield utilm.asyncForEach(incident.incident_updates, (update) => __awaiter(this, void 0, void 0, function* () {
-                        core.info(`  • ${chalk.gray(new Date(update.updated_at).toDateString())} - ${inccol(update.body)}`);
-                    }));
-                }));
+                default: {
+                    core.info(`GitHub Status: ${summary.status.description}`);
+                    break;
+                }
             }
             // Components status
-            if (summary.components != undefined && ((_b = summary.components) === null || _b === void 0 ? void 0 : _b.length) > 0) {
+            if (summary.components != undefined && ((_a = summary.components) === null || _a === void 0 ? void 0 : _a.length) > 0) {
                 core.info(`\n• ${chalk.inverse(`Components status`)}`);
                 yield utilm.asyncForEach(summary.components, (component) => __awaiter(this, void 0, void 0, function* () {
                     if (component.name.startsWith('Visit ')) {
@@ -437,6 +413,35 @@ function run() {
                     }
                     core.info(`  • ${compstatus}${new Array(30 - compstatus.length).join(' ')} ${component.name}`);
                 }));
+                // Check incidents
+                if (summary.incidents != undefined && ((_b = summary.incidents) === null || _b === void 0 ? void 0 : _b.length) > 0) {
+                    yield utilm.asyncForEach(summary.incidents, (incident) => __awaiter(this, void 0, void 0, function* () {
+                        let inccol;
+                        switch (incident.impact) {
+                            case 'minor': {
+                                inccol = chalk.magenta;
+                                break;
+                            }
+                            case 'major': {
+                                inccol = chalk.yellow;
+                                break;
+                            }
+                            case 'critical': {
+                                inccol = chalk.red;
+                                break;
+                            }
+                            default: {
+                                inccol = chalk.white;
+                                break;
+                            }
+                        }
+                        core.info(`\n• ${inccol.bold(`${incident.name} (${incident.shortlink})`)}`);
+                        // Incident updates
+                        yield utilm.asyncForEach(incident.incident_updates, (update) => __awaiter(this, void 0, void 0, function* () {
+                            core.info(`  • ${chalk.gray(new Date(update.updated_at).toISOString())} - ${inccol(update.body)}`);
+                        }));
+                    }));
+                }
             }
         }
         catch (error) {
