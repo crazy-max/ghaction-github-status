@@ -22,7 +22,8 @@ async function run() {
       [Component.Git, await getComponentStatus('git_threshold')],
       [Component.Api, await getComponentStatus('api_threshold')],
       [Component.Webhooks, await getComponentStatus('webhooks_threshold')],
-      [Component.IPP, await getComponentStatus('ipp_threshold')],
+      [Component.Issues, await getComponentStatus('issues_threshold')],
+      [Component.PullRequests, await getComponentStatus('prs_threshold')],
       [Component.Actions, await getComponentStatus('actions_threshold')],
       [Component.Packages, await getComponentStatus('packages_threshold')],
       [Component.Pages, await getComponentStatus('pages_threshold')]

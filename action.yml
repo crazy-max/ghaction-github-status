@@ -19,8 +19,11 @@ inputs:
   webhooks_threshold:
     description: 'Defines threshold for Webhooks to fail the job (operational, degraded_performance, partial_outage or major_outage)'
     required: false
-  ipp_threshold:
-    description: 'Defines threshold for Issues, PRs, Projects to fail the job (operational, degraded_performance, partial_outage or major_outage)'
+  issues_threshold:
+    description: 'Defines threshold for Issues to fail the job (operational, degraded_performance, partial_outage or major_outage)'
+    required: false
+  prs_threshold:
+    description: 'Defines threshold for Pull Requests to fail the job (operational, degraded_performance, partial_outage or major_outage)'
     required: false
   actions_threshold:
     description: 'Defines threshold for GitHub Actions to fail the job (operational, degraded_performance, partial_outage or major_outage)'

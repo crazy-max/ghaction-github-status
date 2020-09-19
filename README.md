@@ -94,7 +94,8 @@ Following inputs can be used as `step.with` keys
 | `git_threshold`**²**      | String  | Defines threshold for Git Operations to fail the job                     |
 | `api_threshold`**²**      | String  | Defines threshold for API Requests to fail the job                       |
 | `webhooks_threshold`**²** | String  | Defines threshold for Webhooks to fail the job                           |
-| `ipp_threshold`**²**      | String  | Defines threshold for Issues, PRs, Projects to fail the job              |
+| `issues_threshold`**²**   | String  | Defines threshold for Issues to fail the job                             |
+| `prs_threshold`**²**      | String  | Defines threshold for Pull Requests to fail the job                      |
 | `actions_threshold`**²**  | String  | Defines threshold for GitHub Actions to fail the job                     |
 | `packages_threshold`**²** | String  | Defines threshold for GitHub Packages to fail the job                    |
 | `pages_threshold`**²**    | String  | Defines threshold for GitHub Pages to fail the job                       |
