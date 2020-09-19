@@ -48,7 +48,7 @@ jobs:
     steps:
       -
         name: Check GitHub Status
-        uses: crazy-max/ghaction-github-status@v1
+        uses: crazy-max/ghaction-github-status@v2
       -
         name: Checkout
         uses: actions/checkout@v2
@@ -73,7 +73,7 @@ jobs:
     steps:
       -
         name: Check GitHub Status
-        uses: crazy-max/ghaction-github-status@v1
+        uses: crazy-max/ghaction-github-status@v2
         with:
           overall_threshold: minor
           pages_threshold: partial_outage
