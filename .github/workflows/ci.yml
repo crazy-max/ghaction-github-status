@@ -43,5 +43,3 @@ jobs:
         with:
           overall_threshold: minor
           pages_threshold: partial_outage
-        env:
-          GHACTION_GITHUB_STATUS_MOCKIT: true

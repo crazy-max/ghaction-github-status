@@ -47,6 +47,10 @@ async function run() {
         core.error(`GitHub Status: ${summary.status.description}`);
         break;
       }
+      case 'maintenance': {
+        core.warning(`GitHub Status: ${summary.status.description}`);
+        break;
+      }
       default: {
         core.info(`GitHub Status: ${summary.status.description}`);
         break;
@@ -88,6 +92,10 @@ async function run() {
           }
           case 'major_outage': {
             compStatusText = chalk.red('Major outage');
+            break;
+          }
+          case 'under_maintenance': {
+            compStatusText = chalk.blue('Under maintenance');
             break;
           }
         }

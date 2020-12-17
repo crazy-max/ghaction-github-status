@@ -1,0 +1,13 @@
+{
+  "page": {
+    "id": "kctbh9vrtdwd",
+    "name": "GitHub",
+    "url": "https://www.githubstatus.com",
+    "time_zone": "Etc/UTC",
+    "updated_at": "2020-12-17T00:54:37.709Z"
+  },
+  "status": {
+    "indicator": "maintenance",
+    "description": "Service Under Maintenance"
+  }
+}

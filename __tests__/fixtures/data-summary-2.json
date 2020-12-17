@@ -1,0 +1,240 @@
+{
+  "page": {
+    "id": "kctbh9vrtdwd",
+    "name": "GitHub",
+    "url": "https://www.githubstatus.com",
+    "time_zone": "Etc/UTC",
+    "updated_at": "2020-12-17T00:54:37.709Z"
+  },
+  "components": [
+    {
+      "id": "8l4ygp009s5s",
+      "name": "Git Operations",
+      "status": "operational",
+      "created_at": "2017-01-31T20:05:05.370Z",
+      "updated_at": "2020-10-29T22:51:43.831Z",
+      "position": 1,
+      "description": "Performance of git clones, pulls, pushes, and associated operations",
+      "showcase": false,
+      "start_date": null,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "brv1bkgrwx7q",
+      "name": "API Requests",
+      "status": "operational",
+      "created_at": "2017-01-31T20:01:46.621Z",
+      "updated_at": "2020-12-17T00:54:20.946Z",
+      "position": 2,
+      "description": "Requests for GitHub APIs",
+      "showcase": false,
+      "start_date": null,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "4230lsnqdsld",
+      "name": "Webhooks",
+      "status": "operational",
+      "created_at": "2019-11-13T18:00:24.256Z",
+      "updated_at": "2020-11-18T23:38:14.467Z",
+      "position": 3,
+      "description": "Real time HTTP callbacks of user-generated and system events",
+      "showcase": false,
+      "start_date": null,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "0l2p9nhqnxpd",
+      "name": "Visit www.githubstatus.com for more information",
+      "status": "operational",
+      "created_at": "2018-12-05T19:39:40.838Z",
+      "updated_at": "2020-04-02T21:56:21.954Z",
+      "position": 4,
+      "description": null,
+      "showcase": false,
+      "start_date": null,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "kr09ddfgbfsf",
+      "name": "Issues",
+      "status": "operational",
+      "created_at": "2017-01-31T20:01:46.638Z",
+      "updated_at": "2020-12-17T00:54:24.999Z",
+      "position": 5,
+      "description": "Requests for Issues on GitHub.com",
+      "showcase": false,
+      "start_date": null,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "hhtssxt0f5v2",
+      "name": "Pull Requests",
+      "status": "operational",
+      "created_at": "2020-09-02T15:39:06.329Z",
+      "updated_at": "2020-12-17T00:54:27.674Z",
+      "position": 6,
+      "description": "Requests for Pull Requests on GitHub.com",
+      "showcase": false,
+      "start_date": null,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "br0l2tvcx85d",
+      "name": "GitHub Actions",
+      "status": "under_maintenance",
+      "created_at": "2019-11-13T18:02:19.432Z",
+      "updated_at": "2020-12-15T10:00:40.029Z",
+      "position": 7,
+      "description": "Workflows, Compute and Orchestration for GitHub Actions",
+      "showcase": false,
+      "start_date": null,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "st3j38cctv9l",
+      "name": "GitHub Packages",
+      "status": "operational",
+      "created_at": "2019-11-13T18:02:40.064Z",
+      "updated_at": "2020-12-17T00:54:37.707Z",
+      "position": 8,
+      "description": "API requests and webhook delivery for GitHub Packages",
+      "showcase": false,
+      "start_date": null,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    },
+    {
+      "id": "vg70hn9s2tyj",
+      "name": "GitHub Pages",
+      "status": "operational",
+      "created_at": "2017-01-31T20:04:33.923Z",
+      "updated_at": "2020-10-10T00:02:38.220Z",
+      "position": 9,
+      "description": "Frontend application and API servers for Pages builds",
+      "showcase": false,
+      "start_date": null,
+      "group_id": null,
+      "page_id": "kctbh9vrtdwd",
+      "group": false,
+      "only_show_if_degraded": false
+    }
+  ],
+  "incidents": [],
+  "scheduled_maintenances": [
+    {
+      "id": "3jr0nb7zjpbm",
+      "name": "macOS virtual environment maintenance",
+      "status": "in_progress",
+      "created_at": "2020-12-14T16:37:35.904Z",
+      "updated_at": "2020-12-15T10:00:40.058Z",
+      "monitoring_at": null,
+      "resolved_at": null,
+      "impact": "maintenance",
+      "shortlink": "https://stspg.io/rm0t69d0btrr",
+      "started_at": "2020-12-14T16:37:35.898Z",
+      "page_id": "kctbh9vrtdwd",
+      "incident_updates": [
+        {
+          "id": "f0421g6r1g8m",
+          "status": "in_progress",
+          "body": "Scheduled maintenance is currently in progress. We will provide updates as necessary.",
+          "incident_id": "3jr0nb7zjpbm",
+          "created_at": "2020-12-15T10:00:40.056Z",
+          "updated_at": "2020-12-15T10:00:40.056Z",
+          "display_at": "2020-12-15T10:00:40.056Z",
+          "affected_components": [
+            {
+              "code": "br0l2tvcx85d",
+              "name": "GitHub Actions",
+              "old_status": "operational",
+              "new_status": "under_maintenance"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "vrs2hgm4k8th",
+          "status": "scheduled",
+          "body": "Maintenance will begin as scheduled in 60 minutes.",
+          "incident_id": "3jr0nb7zjpbm",
+          "created_at": "2020-12-15T09:00:29.617Z",
+          "updated_at": "2020-12-15T09:00:29.617Z",
+          "display_at": "2020-12-15T09:00:29.617Z",
+          "affected_components": null,
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        },
+        {
+          "id": "9byn0w0j9hyg",
+          "status": "scheduled",
+          "body": "During the week of December 14-18, GitHub will be performing scheduled maintenance on one of our datacenters that may result in longer than normal queue times for macOS workflows using macos-latest, macos-10.14, or macos-10.15. In some cases, it may be possible that jobs will time out or be cancelled, and will need to be restarted.\n\nWe apologize for the inconvenience and encourage you to be patient, and give your workflows extra time to run. Follow our progress in the virtual-environments repo <a href=\"https://github.com/actions/virtual-environments/issues/2247\">here</a>.",
+          "incident_id": "3jr0nb7zjpbm",
+          "created_at": "2020-12-14T16:37:35.959Z",
+          "updated_at": "2020-12-14T16:37:35.959Z",
+          "display_at": "2020-12-14T16:37:35.959Z",
+          "affected_components": [
+            {
+              "code": "br0l2tvcx85d",
+              "name": "GitHub Actions",
+              "old_status": "operational",
+              "new_status": "operational"
+            }
+          ],
+          "deliver_notifications": true,
+          "custom_tweet": null,
+          "tweet_id": null
+        }
+      ],
+      "components": [
+        {
+          "id": "br0l2tvcx85d",
+          "name": "GitHub Actions",
+          "status": "under_maintenance",
+          "created_at": "2019-11-13T18:02:19.432Z",
+          "updated_at": "2020-12-15T10:00:40.029Z",
+          "position": 7,
+          "description": "Workflows, Compute and Orchestration for GitHub Actions",
+          "showcase": false,
+          "start_date": null,
+          "group_id": null,
+          "page_id": "kctbh9vrtdwd",
+          "group": false,
+          "only_show_if_degraded": false
+        }
+      ],
+      "scheduled_for": "2020-12-15T10:00:00.000Z",
+      "scheduled_until": "2020-12-19T04:00:00.000Z"
+    }
+  ],
+  "status": {
+    "indicator": "maintenance",
+    "description": "Service Under Maintenance"
+  }
+}

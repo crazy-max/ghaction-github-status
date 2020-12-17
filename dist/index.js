@@ -2,22 +2,6 @@ module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 974:
-/***/ ((module) => {
-
-"use strict";
-module.exports = JSON.parse("{\"page\":{\"id\":\"kctbh9vrtdwd\",\"name\":\"GitHub\",\"url\":\"https://www.githubstatus.com\",\"time_zone\":\"Etc/UTC\",\"updated_at\":\"2020-05-22T20:50:20.457Z\"},\"status\":{\"indicator\":\"minor\",\"description\":\"Minor Service Outage\"}}");
-
-/***/ }),
-
-/***/ 675:
-/***/ ((module) => {
-
-"use strict";
-module.exports = JSON.parse("{\"page\":{\"id\":\"kctbh9vrtdwd\",\"name\":\"GitHub\",\"url\":\"https://www.githubstatus.com\",\"time_zone\":\"Etc/UTC\",\"updated_at\":\"2020-05-22T20:50:20.457Z\"},\"components\":[{\"id\":\"8l4ygp009s5s\",\"name\":\"Git Operations\",\"status\":\"operational\",\"created_at\":\"2017-01-31T20:05:05.370Z\",\"updated_at\":\"2020-09-02T15:40:02.167Z\",\"position\":1,\"description\":\"Performance of git clones, pulls, pushes, and associated operations\",\"showcase\":false,\"start_date\":null,\"group_id\":null,\"page_id\":\"kctbh9vrtdwd\",\"group\":false,\"only_show_if_degraded\":false},{\"id\":\"brv1bkgrwx7q\",\"name\":\"API Requests\",\"status\":\"operational\",\"created_at\":\"2017-01-31T20:01:46.621Z\",\"updated_at\":\"2020-09-08T17:16:59.324Z\",\"position\":2,\"description\":\"Requests for GitHub APIs\",\"showcase\":false,\"start_date\":null,\"group_id\":null,\"page_id\":\"kctbh9vrtdwd\",\"group\":false,\"only_show_if_degraded\":false},{\"id\":\"4230lsnqdsld\",\"name\":\"Webhooks\",\"status\":\"operational\",\"created_at\":\"2019-11-13T18:00:24.256Z\",\"updated_at\":\"2020-09-07T01:36:09.887Z\",\"position\":3,\"description\":\"Real time HTTP callbacks of user-generated and system events\",\"showcase\":false,\"start_date\":null,\"group_id\":null,\"page_id\":\"kctbh9vrtdwd\",\"group\":false,\"only_show_if_degraded\":false},{\"id\":\"0l2p9nhqnxpd\",\"name\":\"Visit www.githubstatus.com for more information\",\"status\":\"operational\",\"created_at\":\"2018-12-05T19:39:40.838Z\",\"updated_at\":\"2020-04-02T21:56:21.954Z\",\"position\":4,\"description\":null,\"showcase\":false,\"start_date\":null,\"group_id\":null,\"page_id\":\"kctbh9vrtdwd\",\"group\":false,\"only_show_if_degraded\":false},{\"id\":\"kr09ddfgbfsf\",\"name\":\"Issues\",\"status\":\"operational\",\"created_at\":\"2017-01-31T20:01:46.638Z\",\"updated_at\":\"2020-09-08T16:14:03.625Z\",\"position\":5,\"description\":\"Requests for Issues on GitHub.com\",\"showcase\":false,\"start_date\":null,\"group_id\":null,\"page_id\":\"kctbh9vrtdwd\",\"group\":false,\"only_show_if_degraded\":false},{\"id\":\"hhtssxt0f5v2\",\"name\":\"Pull Requests\",\"status\":\"operational\",\"created_at\":\"2020-09-02T15:39:06.329Z\",\"updated_at\":\"2020-09-08T16:14:05.407Z\",\"position\":6,\"description\":\"Requests for Pull Requests on GitHub.com\",\"showcase\":false,\"start_date\":null,\"group_id\":null,\"page_id\":\"kctbh9vrtdwd\",\"group\":false,\"only_show_if_degraded\":false},{\"id\":\"br0l2tvcx85d\",\"name\":\"GitHub Actions\",\"status\":\"operational\",\"created_at\":\"2019-11-13T18:02:19.432Z\",\"updated_at\":\"2020-09-02T15:40:47.790Z\",\"position\":7,\"description\":\"Workflows, Compute and Orchestration for GitHub Actions\",\"showcase\":false,\"start_date\":null,\"group_id\":null,\"page_id\":\"kctbh9vrtdwd\",\"group\":false,\"only_show_if_degraded\":false},{\"id\":\"st3j38cctv9l\",\"name\":\"GitHub Packages\",\"status\":\"operational\",\"created_at\":\"2019-11-13T18:02:40.064Z\",\"updated_at\":\"2020-09-08T15:50:32.845Z\",\"position\":8,\"description\":\"API requests and webhook delivery for GitHub Packages\",\"showcase\":false,\"start_date\":null,\"group_id\":null,\"page_id\":\"kctbh9vrtdwd\",\"group\":false,\"only_show_if_degraded\":false},{\"id\":\"vg70hn9s2tyj\",\"name\":\"GitHub Pages\",\"status\":\"operational\",\"created_at\":\"2017-01-31T20:04:33.923Z\",\"updated_at\":\"2020-09-17T16:30:28.895Z\",\"position\":9,\"description\":\"Frontend application and API servers for Pages builds\",\"showcase\":false,\"start_date\":null,\"group_id\":null,\"page_id\":\"kctbh9vrtdwd\",\"group\":false,\"only_show_if_degraded\":false}],\"incidents\":[{\"id\":\"6tcfpztf6j9m\",\"name\":\"Incident on 2020-05-22 16:41 UTC\",\"status\":\"investigating\",\"created_at\":\"2020-05-22T16:41:53.142Z\",\"updated_at\":\"2020-05-22T20:50:13.761Z\",\"monitoring_at\":null,\"resolved_at\":null,\"impact\":\"minor\",\"shortlink\":\"http://stspg.io/g1l6nqnlv29b\",\"started_at\":\"2020-05-22T16:41:53.133Z\",\"page_id\":\"kctbh9vrtdwd\",\"incident_updates\":[{\"id\":\"2hdg5g90ysg5\",\"status\":\"investigating\",\"body\":\"The last incident update was due to the ongoing remediation work. We have addressed that issue and continue to monitor the original issue.\",\"incident_id\":\"6tcfpztf6j9m\",\"created_at\":\"2020-05-22T20:50:13.759Z\",\"updated_at\":\"2020-05-22T20:50:13.759Z\",\"display_at\":\"2020-05-22T20:50:13.759Z\",\"affected_components\":null,\"deliver_notifications\":true,\"custom_tweet\":null,\"tweet_id\":null},{\"id\":\"jwx4zzg89qxk\",\"status\":\"investigating\",\"body\":\"We are also investigating elevated error rates for GitHub.com.\",\"incident_id\":\"6tcfpztf6j9m\",\"created_at\":\"2020-05-22T19:57:28.380Z\",\"updated_at\":\"2020-05-22T19:57:28.380Z\",\"display_at\":\"2020-05-22T19:57:28.380Z\",\"affected_components\":null,\"deliver_notifications\":true,\"custom_tweet\":null,\"tweet_id\":null},{\"id\":\"2v0t4679xdb0\",\"status\":\"investigating\",\"body\":\"We continue to monitor the remediation and will provide the next update in 1 hour.\",\"incident_id\":\"6tcfpztf6j9m\",\"created_at\":\"2020-05-22T19:17:05.205Z\",\"updated_at\":\"2020-05-22T19:17:05.205Z\",\"display_at\":\"2020-05-22T19:17:05.205Z\",\"affected_components\":null,\"deliver_notifications\":true,\"custom_tweet\":null,\"tweet_id\":null},{\"id\":\"2vsfbxp44rcy\",\"status\":\"investigating\",\"body\":\"We have identified the source causing elevated errors as well as occasional stale data on GitHub.com. We are working on remediation.\",\"incident_id\":\"6tcfpztf6j9m\",\"created_at\":\"2020-05-22T18:01:25.988Z\",\"updated_at\":\"2020-05-22T18:01:25.988Z\",\"display_at\":\"2020-05-22T18:01:25.988Z\",\"affected_components\":null,\"deliver_notifications\":true,\"custom_tweet\":null,\"tweet_id\":null},{\"id\":\"v2jscrdmsw38\",\"status\":\"investigating\",\"body\":\"We continue to investigate an increase in errors on GitHub.com.\",\"incident_id\":\"6tcfpztf6j9m\",\"created_at\":\"2020-05-22T17:16:39.703Z\",\"updated_at\":\"2020-05-22T17:16:39.703Z\",\"display_at\":\"2020-05-22T17:16:39.703Z\",\"affected_components\":null,\"deliver_notifications\":true,\"custom_tweet\":null,\"tweet_id\":null},{\"id\":\"3ry2b0s8174c\",\"status\":\"investigating\",\"body\":\"We are investigating an increase in errors on GitHub.com.\",\"incident_id\":\"6tcfpztf6j9m\",\"created_at\":\"2020-05-22T16:41:53.189Z\",\"updated_at\":\"2020-05-22T16:41:53.189Z\",\"display_at\":\"2020-05-22T16:41:53.189Z\",\"affected_components\":[{\"code\":\"0l2p9nhqnxpd\",\"name\":\"Visit www.githubstatus.com for more information\",\"old_status\":\"operational\",\"new_status\":\"operational\"}],\"deliver_notifications\":true,\"custom_tweet\":null,\"tweet_id\":null}],\"components\":[{\"id\":\"0l2p9nhqnxpd\",\"name\":\"Visit www.githubstatus.com for more information\",\"status\":\"operational\",\"created_at\":\"2018-12-05T19:39:40.838Z\",\"updated_at\":\"2020-04-02T21:56:21.954Z\",\"position\":4,\"description\":null,\"showcase\":false,\"group_id\":null,\"page_id\":\"kctbh9vrtdwd\",\"group\":false,\"only_show_if_degraded\":false}]}],\"scheduled_maintenances\":[{\"id\":\"skzhfwy9kf8q\",\"name\":\"Deprecating password authentication\",\"status\":\"scheduled\",\"created_at\":\"2020-09-14T09:33:28.071Z\",\"updated_at\":\"2020-09-14T09:36:29.610Z\",\"monitoring_at\":null,\"resolved_at\":null,\"impact\":\"maintenance\",\"shortlink\":\"http://stspg.io/z0gf9ffzy530\",\"started_at\":\"2020-09-14T09:33:28.065Z\",\"page_id\":\"kctbh9vrtdwd\",\"incident_updates\":[{\"id\":\"xwjsnptt3v4g\",\"status\":\"scheduled\",\"body\":\"As mentioned in our <a href=\\\"https://developer.github.com/changes/2020-02-14-deprecating-password-auth/\\\">developer guide</a>, GitHub no longer supports basic authentication using a username and password. Instead, we recommend using personal access tokens or the web application flow.\",\"incident_id\":\"skzhfwy9kf8q\",\"created_at\":\"2020-09-14T09:33:28.126Z\",\"updated_at\":\"2020-09-14T09:36:29.607Z\",\"display_at\":\"2020-09-14T09:33:28.126Z\",\"affected_components\":[{\"code\":\"brv1bkgrwx7q\",\"name\":\"API Requests\",\"old_status\":\"operational\",\"new_status\":\"operational\"}],\"deliver_notifications\":true,\"custom_tweet\":null,\"tweet_id\":null}],\"components\":[{\"id\":\"brv1bkgrwx7q\",\"name\":\"API Requests\",\"status\":\"operational\",\"created_at\":\"2017-01-31T20:01:46.621Z\",\"updated_at\":\"2020-09-08T17:16:59.324Z\",\"position\":2,\"description\":\"Requests for GitHub APIs\",\"showcase\":false,\"start_date\":null,\"group_id\":null,\"page_id\":\"kctbh9vrtdwd\",\"group\":false,\"only_show_if_degraded\":false}],\"scheduled_for\":\"2020-09-30T07:00:00.000Z\",\"scheduled_until\":\"2020-09-30T10:00:00.000Z\"},{\"id\":\"ry5psbndh11j\",\"name\":\"Deprecating password authentication\",\"status\":\"scheduled\",\"created_at\":\"2020-09-14T09:34:09.320Z\",\"updated_at\":\"2020-09-14T09:35:34.843Z\",\"monitoring_at\":null,\"resolved_at\":null,\"impact\":\"maintenance\",\"shortlink\":\"http://stspg.io/r7b3cwdr1hll\",\"started_at\":\"2020-09-14T09:34:09.316Z\",\"page_id\":\"kctbh9vrtdwd\",\"incident_updates\":[{\"id\":\"9pyd05dq9dmh\",\"status\":\"scheduled\",\"body\":\"As mentioned in our <a href=\\\"https://developer.github.com/changes/2020-02-14-deprecating-password-auth\\\">developer guide</a>, GitHub no longer supports basic authentication using a username and password. Instead, we recommend using personal access tokens or the web application flow.\",\"incident_id\":\"ry5psbndh11j\",\"created_at\":\"2020-09-14T09:34:09.369Z\",\"updated_at\":\"2020-09-14T09:35:34.841Z\",\"display_at\":\"2020-09-14T09:34:09.369Z\",\"affected_components\":[{\"code\":\"brv1bkgrwx7q\",\"name\":\"API Requests\",\"old_status\":\"operational\",\"new_status\":\"operational\"}],\"deliver_notifications\":true,\"custom_tweet\":null,\"tweet_id\":null}],\"components\":[{\"id\":\"brv1bkgrwx7q\",\"name\":\"API Requests\",\"status\":\"operational\",\"created_at\":\"2017-01-31T20:01:46.621Z\",\"updated_at\":\"2020-09-08T17:16:59.324Z\",\"position\":2,\"description\":\"Requests for GitHub APIs\",\"showcase\":false,\"start_date\":null,\"group_id\":null,\"page_id\":\"kctbh9vrtdwd\",\"group\":false,\"only_show_if_degraded\":false}],\"scheduled_for\":\"2020-09-30T16:00:00.000Z\",\"scheduled_until\":\"2020-09-30T19:00:00.000Z\"}],\"status\":{\"indicator\":\"minor\",\"description\":\"Minor Service Outage\"}}");
-
-/***/ }),
-
 /***/ 779:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
@@ -47,6 +31,7 @@ var OverallStatus;
     OverallStatus[OverallStatus["Minor"] = 0] = "Minor";
     OverallStatus[OverallStatus["Major"] = 1] = "Major";
     OverallStatus[OverallStatus["Critical"] = 2] = "Critical";
+    OverallStatus[OverallStatus["Maintenance"] = 3] = "Maintenance";
 })(OverallStatus = exports.OverallStatus || (exports.OverallStatus = {}));
 var ComponentStatus;
 (function (ComponentStatus) {
@@ -54,6 +39,7 @@ var ComponentStatus;
     ComponentStatus[ComponentStatus["DegradedPerformance"] = 1] = "DegradedPerformance";
     ComponentStatus[ComponentStatus["PartialOutage"] = 2] = "PartialOutage";
     ComponentStatus[ComponentStatus["MajorOutage"] = 3] = "MajorOutage";
+    ComponentStatus[ComponentStatus["UnderMaintenance"] = 4] = "UnderMaintenance";
 })(ComponentStatus = exports.ComponentStatus || (exports.ComponentStatus = {}));
 var Component;
 (function (Component) {
@@ -70,13 +56,15 @@ var Component;
 exports.OverallStatusName = new Map([
     ['minor', OverallStatus.Minor],
     ['major', OverallStatus.Major],
-    ['critical', OverallStatus.Critical]
+    ['critical', OverallStatus.Critical],
+    ['maintenance', OverallStatus.Maintenance]
 ]);
 exports.ComponentsStatusName = new Map([
     ['operational', ComponentStatus.Operational],
     ['degraded_performance', ComponentStatus.DegradedPerformance],
     ['partial_outage', ComponentStatus.PartialOutage],
-    ['major_outage', ComponentStatus.MajorOutage]
+    ['major_outage', ComponentStatus.MajorOutage],
+    ['under_maintenance', ComponentStatus.UnderMaintenance]
 ]);
 exports.getOverallStatusName = (status) => __awaiter(void 0, void 0, void 0, function* () {
     var e_1, _a;
@@ -113,19 +101,10 @@ exports.getComponentStatusName = (status) => __awaiter(void 0, void 0, void 0, f
     }
 });
 exports.status = () => __awaiter(void 0, void 0, void 0, function* () {
-    yield console.log(process.env);
-    if (process.env.GHACTION_GITHUB_STATUS_MOCKIT) {
-        // @ts-ignore
-        return __webpack_require__(974);
-    }
     const http = new httpm.HttpClient('ghaction-github-status');
     return (yield http.getJson(`https://www.githubstatus.com/api/v2/status.json`)).result;
 });
 exports.summary = () => __awaiter(void 0, void 0, void 0, function* () {
-    if (process.env.GHACTION_GITHUB_STATUS_MOCKIT) {
-        // @ts-ignore
-        return __webpack_require__(675);
-    }
     const http = new httpm.HttpClient('ghaction-github-status');
     return (yield http.getJson(`https://www.githubstatus.com/api/v2/summary.json`)).result;
 });
@@ -193,6 +172,10 @@ function run() {
                     core.error(`GitHub Status: ${summary.status.description}`);
                     break;
                 }
+                case 'maintenance': {
+                    core.warning(`GitHub Status: ${summary.status.description}`);
+                    break;
+                }
                 default: {
                     core.info(`GitHub Status: ${summary.status.description}`);
                     break;
@@ -233,6 +216,10 @@ function run() {
                         }
                         case 'major_outage': {
                             compStatusText = chalk.red('Major outage');
+                            break;
+                        }
+                        case 'under_maintenance': {
+                            compStatusText = chalk.blue('Under maintenance');
                             break;
                         }
                     }

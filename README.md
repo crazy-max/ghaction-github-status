@@ -100,8 +100,8 @@ Following inputs can be used as `step.with` keys
 | `packages_threshold`**²** | String  | Defines threshold for GitHub Packages to fail the job                    |
 | `pages_threshold`**²**    | String  | Defines threshold for GitHub Pages to fail the job                       |
 
-> * **¹** Accepted values are `minor`, `major` or `critical`.
-> * **²** Accepted values are `operational`, `degraded_performance`, `partial_outage` or `major_outage`.
+> * **¹** Accepted values are `minor`, `major`, `critical` or `maintenance`.
+> * **²** Accepted values are `operational`, `degraded_performance`, `partial_outage` `major_outage`, `under_maintenance`.
 
 ## Keep up-to-date with GitHub Dependabot
 
@@ -121,7 +121,10 @@ updates:
 
 ## How can I help?
 
-All kinds of contributions are welcome :raised_hands:! The most basic way to show your support is to star :star2: the project, or to raise issues :speech_balloon: You can also support this project by [**becoming a sponsor on GitHub**](https://github.com/sponsors/crazy-max) :clap: or by making a [Paypal donation](https://www.paypal.me/crazyws) to ensure this journey continues indefinitely! :rocket:
+All kinds of contributions are welcome :raised_hands:! The most basic way to show your support is to star :star2: the
+project, or to raise issues :speech_balloon: You can also support this project by
+[**becoming a sponsor on GitHub**](https://github.com/sponsors/crazy-max) :clap: or by making a
+[Paypal donation](https://www.paypal.me/crazyws) to ensure this journey continues indefinitely! :rocket:
 
 Thanks again for your support, it is much appreciated! :pray:
 
