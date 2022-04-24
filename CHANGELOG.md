@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.3.0 (2022/04/24)
+
+* Codespaces status support (#62)
+* Update dev dependencies and workflow (#61)
+* Bump @actions/core from 1.2.6 to 1.6.0 (#37 #51 #55)
+* Bump minimist from 1.2.5 to 1.2.6 (#59)
+* Bump ansi-regex from 5.0.0 to 5.0.1 (#54)
+* Bump tmpl from 1.0.4 to 1.0.5 (#53)
+* Bump path-parse from 1.0.6 to 1.0.7 (#50)
+* Bump hosted-git-info from 2.8.8 to 2.8.9 (#45)
+* Bump ws from 7.3.1 to 7.4.6 (#44)
+* Bump lodash from 4.17.20 to 4.17.21 (#46)
+* Bump chalk from 4.1.0 to 4.1.2 (#38 #49)
+
 ## 2.2.0 (2021/03/30)
 
 * Bump @actions/http-client from 1.0.9 to 1.0.11 (#34)
