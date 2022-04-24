@@ -1,3 +1,4 @@
+import {describe, expect, it} from '@jest/globals';
 import * as githubstatus from '../src/githubstatus';
 import * as util from '../src/util';
 

@@ -45,13 +45,13 @@ export const ComponentsStatusName = new Map<string, ComponentStatus>([
 ]);
 
 export const getOverallStatusName = async (status: OverallStatus): Promise<string | undefined> => {
-  for await (let [key, val] of OverallStatusName) {
+  for await (const [key, val] of OverallStatusName) {
     if (val == status) return key;
   }
 };
 
 export const getComponentStatusName = async (status: ComponentStatus): Promise<string | undefined> => {
-  for await (let [key, val] of ComponentsStatusName) {
+  for await (const [key, val] of ComponentsStatusName) {
     if (val == status) return key;
   }
 };

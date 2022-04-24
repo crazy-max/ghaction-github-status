@@ -1,18 +1,18 @@
+import {describe, expect, it, jest, test} from '@jest/globals';
 import * as path from 'path';
 import * as githubstatus from '../src/githubstatus';
 import {Page, Status} from '../src/status';
 import {Summary} from '../src/summary';
+import fs from 'fs';
 
 describe('githubstatus', () => {
   it('returns GitHub Status (status)', async () => {
     const status = await githubstatus.status();
-    console.log(status);
     expect(status?.indicator).not.toEqual('');
   });
 
   it('returns GitHub Status (summary)', async () => {
     const summary = await githubstatus.summary();
-    console.log(summary);
     expect(summary?.status.indicator).not.toEqual('');
     expect(summary?.components?.length).toBeGreaterThan(0);
   });
@@ -49,14 +49,15 @@ describe('status', () => {
       } as Page
     ]
   ])('given %p', async (file, expStatus, expPage) => {
-    jest.spyOn(githubstatus, 'status').mockImplementation(
-      (): Promise<Status | null> => {
-        return <Promise<Status>>require(path.join(__dirname, 'fixtures', file));
-      }
-    );
-
+    jest.spyOn(githubstatus, 'status').mockImplementation((): Promise<Status> => {
+      return <Promise<Status>>(JSON.parse(
+        fs.readFileSync(path.join(__dirname, 'fixtures', file), {
+          encoding: 'utf8',
+          flag: 'r'
+        })
+      ) as unknown);
+    });
     const status = await githubstatus.status();
-    console.log(status);
     expect(status?.status).toEqual(expStatus);
     expect(status?.page).toEqual(expPage);
   });
@@ -64,14 +65,15 @@ describe('status', () => {
 
 describe('summary', () => {
   test.each([['data-summary.json'], ['data-summary-2.json']])('given %p', async file => {
-    jest.spyOn(githubstatus, 'summary').mockImplementation(
-      (): Promise<Summary | null> => {
-        return <Promise<Summary>>require(path.join(__dirname, 'fixtures', file));
-      }
-    );
-
+    jest.spyOn(githubstatus, 'summary').mockImplementation((): Promise<Summary> => {
+      return <Promise<Summary>>(JSON.parse(
+        fs.readFileSync(path.join(__dirname, 'fixtures', file), {
+          encoding: 'utf8',
+          flag: 'r'
+        })
+      ) as unknown);
+    });
     const summary = await githubstatus.summary();
-    console.log(summary);
     expect(summary?.status.indicator).not.toEqual('');
     expect(summary?.components?.length).toBeGreaterThan(0);
   });

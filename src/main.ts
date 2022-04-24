@@ -1,13 +1,13 @@
 process.env.FORCE_COLOR = '2';
 
-import * as chalk from 'chalk';
+import chalk from 'chalk';
 import * as core from '@actions/core';
 import * as githubstatus from './githubstatus';
 import {Component, ComponentsStatusName, ComponentStatus, getComponentStatusName, getOverallStatusName, OverallStatus, OverallStatusName} from './githubstatus';
 import {Summary} from './summary';
 import * as utilm from './util';
 
-let unhealthy: Array<string> = [];
+const unhealthy: Array<string> = [];
 
 async function run() {
   try {
