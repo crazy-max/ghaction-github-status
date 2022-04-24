@@ -26,7 +26,8 @@ async function run() {
       [Component.PullRequests, await getComponentStatus('prs_threshold')],
       [Component.Actions, await getComponentStatus('actions_threshold')],
       [Component.Packages, await getComponentStatus('packages_threshold')],
-      [Component.Pages, await getComponentStatus('pages_threshold')]
+      [Component.Pages, await getComponentStatus('pages_threshold')],
+      [Component.Codespaces, await getComponentStatus('codespaces_threshold')]
     ]);
 
     // Global

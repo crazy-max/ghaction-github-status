@@ -87,17 +87,18 @@ jobs:
 
 Following inputs can be used as `step.with` keys
 
-| Name                      | Type    | Description                                                                      |
-|---------------------------|---------|----------------------------------------------------------------------------------|
-| `overall_threshold`**¹**  | String  | Defines threshold for overall status (also called rollup) of GitHub to fail the job |
-| `git_threshold`**²**      | String  | Defines threshold for Git Operations to fail the job                     |
-| `api_threshold`**²**      | String  | Defines threshold for API Requests to fail the job                       |
-| `webhooks_threshold`**²** | String  | Defines threshold for Webhooks to fail the job                           |
-| `issues_threshold`**²**   | String  | Defines threshold for Issues to fail the job                             |
-| `prs_threshold`**²**      | String  | Defines threshold for Pull Requests to fail the job                      |
-| `actions_threshold`**²**  | String  | Defines threshold for GitHub Actions to fail the job                     |
-| `packages_threshold`**²** | String  | Defines threshold for GitHub Packages to fail the job                    |
-| `pages_threshold`**²**    | String  | Defines threshold for GitHub Pages to fail the job                       |
+| Name                           | Type    | Description                                                                         |
+|--------------------------------|---------|-------------------------------------------------------------------------------------|
+| `overall_threshold`**¹**       | String  | Defines threshold for overall status (also called rollup) of GitHub to fail the job |
+| `git_threshold`**²**           | String  | Defines threshold for Git Operations to fail the job                                |
+| `api_threshold`**²**           | String  | Defines threshold for API Requests to fail the job                                  |
+| `webhooks_threshold`**²**      | String  | Defines threshold for Webhooks to fail the job                                      |
+| `issues_threshold`**²**        | String  | Defines threshold for Issues to fail the job                                        |
+| `prs_threshold`**²**           | String  | Defines threshold for Pull Requests to fail the job                                 |
+| `actions_threshold`**²**       | String  | Defines threshold for GitHub Actions to fail the job                                |
+| `packages_threshold`**²**      | String  | Defines threshold for GitHub Packages to fail the job                               |
+| `pages_threshold`**²**         | String  | Defines threshold for GitHub Pages to fail the job                                  |
+| `codespaces_threshold`**²**    | String  | Defines threshold for Codespaces to fail the job                                    |
 
 > * **¹** Accepted values are `minor`, `major`, `critical` or `maintenance`.
 > * **²** Accepted values are `operational`, `degraded_performance`, `partial_outage` `major_outage`, `under_maintenance`.
