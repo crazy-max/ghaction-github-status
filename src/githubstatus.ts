@@ -26,6 +26,7 @@ export enum Component {
   Actions = 'GitHub Actions',
   Packages = 'GitHub Packages',
   Pages = 'GitHub Pages',
+  Codespaces = 'Codespaces',
   Other = 'Other'
 }
 

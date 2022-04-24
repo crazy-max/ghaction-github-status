@@ -34,6 +34,9 @@ inputs:
   pages_threshold:
     description: 'Defines threshold for GitHub Pages to fail the job (operational, degraded_performance, partial_outage or major_outage)'
     required: false
+  codespaces_threshold:
+    description: 'Defines threshold for GitHub Codespaces to fail the job (operational, degraded_performance, partial_outage or major_outage)'
+    required: false
 
 runs:
   using: 'node12'
