@@ -9,7 +9,7 @@
 
 A GitHub Action to check [GitHub Status](https://www.githubstatus.com/) in your workflow.
 
-If you are interested, [check out](https://git.io/Je09Y) my other :octocat: GitHub Actions!
+If you are interested, [check out](https://github.com/crazy-max?tab=repositories&q=ghaction&type=source&language=&sort=) my other :octocat: GitHub Actions!
 
 ___
 
