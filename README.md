@@ -50,7 +50,7 @@ jobs:
         uses: crazy-max/ghaction-github-status@v3
       -
         name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 ```
 
 ### Trigger error if GitHub services are down
@@ -78,7 +78,7 @@ jobs:
           pages_threshold: partial_outage
       -
         name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 ```
 
 ## Customizing
