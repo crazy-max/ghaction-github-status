@@ -24,7 +24,7 @@
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@actions/http-client": "^2.0.1",
-    "chalk": "^5.1.2"
+    "chalk": "^5.2.0"
   },
   "devDependencies": {
     "@types/node": "^16.11.26",
