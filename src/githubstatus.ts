@@ -27,6 +27,7 @@ export enum Component {
   Packages = 'Packages',
   Pages = 'Pages',
   Codespaces = 'Codespaces',
+  Copilot = 'Copilot',
   Other = 'Other'
 }
 

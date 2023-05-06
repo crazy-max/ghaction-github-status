@@ -27,7 +27,8 @@ async function run() {
       [Component.Actions, await getComponentStatus('actions_threshold')],
       [Component.Packages, await getComponentStatus('packages_threshold')],
       [Component.Pages, await getComponentStatus('pages_threshold')],
-      [Component.Codespaces, await getComponentStatus('codespaces_threshold')]
+      [Component.Codespaces, await getComponentStatus('codespaces_threshold')],
+      [Component.Copilot, await getComponentStatus('copilot_threshold')]
     ]);
 
     // Global

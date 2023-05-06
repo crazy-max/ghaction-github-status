@@ -97,6 +97,7 @@ Following inputs can be used as `step.with` keys
 | `packages_threshold`**²**   | String | Defines threshold for Packages to fail the job                                      |
 | `pages_threshold`**²**      | String | Defines threshold for Pages to fail the job                                         |
 | `codespaces_threshold`**²** | String | Defines threshold for Codespaces to fail the job                                    |
+| `copilot_threshold`**²**    | String | Defines threshold for Copilot to fail the job                                       |
 
 > * **¹** Accepted values are `minor`, `major`, `critical` or `maintenance`.
 > * **²** Accepted values are `operational`, `degraded_performance`, `partial_outage` `major_outage`, `under_maintenance`.
