@@ -23,9 +23,9 @@ export enum Component {
   Webhooks = 'Webhooks',
   Issues = 'Issues',
   PullRequests = 'Pull Requests',
-  Actions = 'GitHub Actions',
-  Packages = 'GitHub Packages',
-  Pages = 'GitHub Pages',
+  Actions = 'Actions',
+  Packages = 'Packages',
+  Pages = 'Pages',
   Codespaces = 'Codespaces',
   Other = 'Other'
 }
