@@ -37,6 +37,9 @@ inputs:
   codespaces_threshold:
     description: 'Defines threshold for Codespaces to fail the job (operational, degraded_performance, partial_outage or major_outage)'
     required: false
+  copilot_threshold:
+    description: 'Defines threshold for Copilot to fail the job (operational, degraded_performance, partial_outage or major_outage)'
+    required: false
 
 runs:
   using: 'node16'
