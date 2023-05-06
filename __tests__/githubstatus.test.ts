@@ -1,9 +1,9 @@
+import * as fs from 'fs';
 import {describe, expect, it, jest, test} from '@jest/globals';
 import * as path from 'path';
 import * as githubstatus from '../src/githubstatus';
 import {Page, Status} from '../src/status';
 import {Summary} from '../src/summary';
-import fs from 'fs';
 
 describe('githubstatus', () => {
   it('returns GitHub Status (status)', async () => {
