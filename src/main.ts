@@ -66,6 +66,7 @@ async function run() {
         if (component.name.startsWith('Visit ')) {
           return;
         }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (!(<any>Object).values(Component).includes(component.name)) {
           core.info(chalk.cyan(`• ${component.name} is not implemented.`));
         }
