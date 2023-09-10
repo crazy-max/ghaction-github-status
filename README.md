@@ -30,7 +30,8 @@ ___
 
 ### Basic workflow
 
-The following workflow is purely informative and will only display the current status of GitHub services:
+The following workflow is purely informative and will only display the current
+status of GitHub services:
 
 ![GitHub Status - OK](.github/ghaction-github-status2.png)
 
@@ -45,7 +46,7 @@ jobs:
     steps:
       -
         name: Check GitHub Status
-        uses: crazy-max/ghaction-github-status@v3
+        uses: crazy-max/ghaction-github-status@v4
       -
         name: Checkout
         uses: actions/checkout@v3
@@ -53,9 +54,11 @@ jobs:
 
 ### Trigger error if GitHub services are down
 
-In the example below we will set some status thresholds so that the job can fail if these thresholds are exceeded.
+In the example below, we will set some status thresholds so that the job can
+fail if these thresholds are exceeded.
 
-This can be useful if you have an action that publishes to GitHub Pages but the service is down.
+This can be useful if you have an action that publishes to GitHub Pages, but
+the service is down.
 
 ![GitHub Status - Failed](.github/ghaction-github-status.png)
 
@@ -70,7 +73,7 @@ jobs:
     steps:
       -
         name: Check GitHub Status
-        uses: crazy-max/ghaction-github-status@v3
+        uses: crazy-max/ghaction-github-status@v4
         with:
           overall_threshold: minor
           pages_threshold: partial_outage
@@ -104,11 +107,10 @@ Following inputs can be used as `step.with` keys
 
 ## Contributing
 
-Want to contribute? Awesome! The most basic way to show your support is to star the project, or to raise issues. If
-you want to open a pull request, please read the [contributing guidelines](.github/CONTRIBUTING.md).
-
-You can also support this project by [**becoming a sponsor on GitHub**](https://github.com/sponsors/crazy-max) or by
-making a [Paypal donation](https://www.paypal.me/crazyws) to ensure this journey continues indefinitely!
+Want to contribute? Awesome! The most basic way to show your support is to star
+the project, or to raise issues. You can also support this project by [**becoming a sponsor on GitHub**](https://github.com/sponsors/crazy-max)
+or by making a [PayPal donation](https://www.paypal.me/crazyws) to ensure this
+journey continues indefinitely!
 
 Thanks again for your support, it is much appreciated! :pray:
 
