@@ -1,6 +1,7 @@
-import {Status} from './status';
-import {Summary} from './summary';
 import * as httpm from '@actions/http-client';
+
+import {Status} from './status.js';
+import {Summary} from './summary.js';
 
 export enum OverallStatus {
   Minor,

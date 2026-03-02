@@ -1,10 +1,10 @@
+import {describe, expect, it, vi, test} from 'vitest';
 import * as fs from 'fs';
 import * as path from 'path';
-import {describe, expect, it, vi, test} from 'vitest';
 
-import * as githubstatus from '../src/githubstatus';
-import {Page, Status} from '../src/status';
-import {Summary} from '../src/summary';
+import * as githubstatus from '../src/githubstatus.js';
+import {Page, Status} from '../src/status.js';
+import {Summary} from '../src/summary.js';
 
 describe('githubstatus', () => {
   it('returns GitHub Status (status)', async () => {

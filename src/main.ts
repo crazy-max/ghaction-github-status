@@ -2,10 +2,11 @@ process.env.FORCE_COLOR = '2';
 
 import chalk from 'chalk';
 import * as core from '@actions/core';
-import * as githubstatus from './githubstatus';
-import {Component, ComponentsStatusName, ComponentStatus, getComponentStatusName, getOverallStatusName, OverallStatus, OverallStatusName} from './githubstatus';
-import {Summary} from './summary';
-import * as utilm from './util';
+
+import * as githubstatus from './githubstatus.js';
+import {Component, ComponentsStatusName, ComponentStatus, getComponentStatusName, getOverallStatusName, OverallStatus, OverallStatusName} from './githubstatus.js';
+import {Summary} from './summary.js';
+import * as utilm from './util.js';
 
 const unhealthy: Array<string> = [];
 
