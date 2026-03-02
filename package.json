@@ -24,7 +24,7 @@
   "packageManager": "yarn@4.12.0",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@actions/http-client": "^2.2.3",
+    "@actions/http-client": "^4.0.0",
     "chalk": "^5.4.1"
   },
   "devDependencies": {
