@@ -46,10 +46,10 @@ jobs:
     steps:
       -
         name: Check GitHub Status
-        uses: crazy-max/ghaction-github-status@v4
+        uses: crazy-max/ghaction-github-status@v5
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 ```
 
 ### Trigger error if GitHub services are down
@@ -73,13 +73,13 @@ jobs:
     steps:
       -
         name: Check GitHub Status
-        uses: crazy-max/ghaction-github-status@v4
+        uses: crazy-max/ghaction-github-status@v5
         with:
           overall_threshold: minor
           pages_threshold: partial_outage
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 ```
 
 ## Customizing
